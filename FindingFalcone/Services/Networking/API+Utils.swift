@@ -17,18 +17,6 @@ extension API {
   }
   
   /**
-   Extracts the stored token in the Keychain.
-   */
-  func getTokenFromKeychain() -> String {
-    if let data = KeychainHelper.standard.read(service: .apiToken, account: .api),
-       let t = String(data: data, encoding: .utf8) {
-      return t
-    }
-    
-    return ""
-  }
-  
-  /**
    Internal function to execute a URLRequest and to process and return an Array that has been constructed from JSON data
    */
   func processArrayRequest(_ request: URLRequest,

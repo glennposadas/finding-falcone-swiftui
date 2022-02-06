@@ -1,10 +1,3 @@
-//
-//  SelectionView.swift
-//  FindingFalcone
-//
-//  Created by Glenn Posadas on 2/6/22.
-//
-
 import SwiftUI
 
 struct SelectionView: View {
@@ -17,6 +10,12 @@ struct SelectionView: View {
   
   var body: some View {
     Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      .onAppear {
+        Task.init {
+          let token = try await viewModel.checkAndGetToken()
+          print("token from UI layer :)")
+        }
+      }
   }
 }
 

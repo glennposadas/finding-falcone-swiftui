@@ -5,7 +5,7 @@ class API: NSObject {
   
   static let baseURLPath = "https://findfalcone.herokuapp.com/"
   
-  static var token = shared.getTokenFromKeychain()
+  static var token = Auth.shared.getTokenFromKeychain()
   
   private static var throttledURLSession: URLSession?
   
