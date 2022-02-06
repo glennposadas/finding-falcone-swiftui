@@ -13,14 +13,13 @@
 		4521A35B27B02F7B007C2A20 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521A35A27B02F7B007C2A20 /* API.swift */; };
 		4521A35D27B03300007C2A20 /* API+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4521A35C27B03300007C2A20 /* API+Utils.swift */; };
 		4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E49D27AFE74100EB687A /* FindingFalconeApp.swift */; };
-		4546E4A027AFE74100EB687A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E49F27AFE74100EB687A /* ContentView.swift */; };
 		4546E4A227AFE74300EB687A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4546E4A127AFE74300EB687A /* Assets.xcassets */; };
 		4546E4A527AFE74300EB687A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4546E4A427AFE74300EB687A /* Preview Assets.xcassets */; };
-		4546E4A727AFE74300EB687A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4A627AFE74300EB687A /* Persistence.swift */; };
-		4546E4AA27AFE74300EB687A /* FindingFalcone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */; };
 		4546E4B427AFE74300EB687A /* FindingFalconeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */; };
 		4546E4BE27AFE74300EB687A /* FindingFalconeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */; };
 		4546E4C027AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */; };
+		45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7395D27B0470A00C996CB /* API+Requests.swift */; };
+		45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396027B050B200C996CB /* SelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +47,15 @@
 		4521A35C27B03300007C2A20 /* API+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Utils.swift"; sourceTree = "<group>"; };
 		4546E49A27AFE74100EB687A /* FindingFalcone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindingFalcone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546E49D27AFE74100EB687A /* FindingFalconeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeApp.swift; sourceTree = "<group>"; };
-		4546E49F27AFE74100EB687A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4546E4A127AFE74300EB687A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4546E4A427AFE74300EB687A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4546E4A627AFE74300EB687A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FindingFalcone.xcdatamodel; sourceTree = "<group>"; };
 		4546E4AF27AFE74300EB687A /* FindingFalconeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindingFalconeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeTests.swift; sourceTree = "<group>"; };
 		4546E4B927AFE74300EB687A /* FindingFalconeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindingFalconeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITests.swift; sourceTree = "<group>"; };
 		4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45D7395D27B0470A00C996CB /* API+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Requests.swift"; sourceTree = "<group>"; };
+		45D7396027B050B200C996CB /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +146,7 @@
 		4546E4CC27AFE77500EB687A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4546E49F27AFE74100EB687A /* ContentView.swift */,
-				4521A35427B01B35007C2A20 /* SelectionView.swift */,
+				45D7395F27B0509D00C996CB /* Selection */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -157,7 +154,6 @@
 		4546E4CD27AFE77E00EB687A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,7 +161,6 @@
 		4546E4CE27AFEA5000EB687A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4546E4A627AFE74300EB687A /* Persistence.swift */,
 				4521A35627B023BE007C2A20 /* Keychain.swift */,
 			);
 			path = Utils;
@@ -199,9 +194,19 @@
 			isa = PBXGroup;
 			children = (
 				4521A35A27B02F7B007C2A20 /* API.swift */,
+				45D7395D27B0470A00C996CB /* API+Requests.swift */,
 				4521A35C27B03300007C2A20 /* API+Utils.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		45D7395F27B0509D00C996CB /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				4521A35427B01B35007C2A20 /* SelectionView.swift */,
+				45D7396027B050B200C996CB /* SelectionViewModel.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,14 +339,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4546E4A727AFE74300EB687A /* Persistence.swift in Sources */,
-				4546E4A027AFE74100EB687A /* ContentView.swift in Sources */,
-				4546E4AA27AFE74300EB687A /* FindingFalcone.xcdatamodeld in Sources */,
 				4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */,
+				45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */,
 				4521A35927B02EA1007C2A20 /* AppConstants.swift in Sources */,
 				4521A35527B01B35007C2A20 /* SelectionView.swift in Sources */,
 				4521A35D27B03300007C2A20 /* API+Utils.swift in Sources */,
 				4521A35B27B02F7B007C2A20 /* API.swift in Sources */,
+				45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */,
 				4521A35727B023BE007C2A20 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,19 +673,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */,
-			);
-			currentVersion = 4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */;
-			path = FindingFalcone.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4546E49227AFE74100EB687A /* Project object */;
 }

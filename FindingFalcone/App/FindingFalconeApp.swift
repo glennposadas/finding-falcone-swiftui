@@ -6,7 +6,7 @@ struct FindingFalconeApp: App {
   
   var body: some Scene {
     WindowGroup {
-      SelectionView()
+      SelectionView(viewModel: .init())
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }

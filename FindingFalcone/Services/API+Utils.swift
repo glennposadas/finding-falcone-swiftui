@@ -117,8 +117,6 @@ extension API {
       ]
       
     }
-    return NSError(domain: "FotobabbleError", code: statusCode, userInfo: userInfo)
+    return NSError(domain: "APIError-FindingFalcone", code: statusCode, userInfo: userInfo)
   }
-  
-  
 }
