@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E49D27AFE74100EB687A /* FindingFalconeApp.swift */; };
+		4546E4A027AFE74100EB687A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E49F27AFE74100EB687A /* ContentView.swift */; };
+		4546E4A227AFE74300EB687A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4546E4A127AFE74300EB687A /* Assets.xcassets */; };
+		4546E4A527AFE74300EB687A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4546E4A427AFE74300EB687A /* Preview Assets.xcassets */; };
+		4546E4A727AFE74300EB687A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4A627AFE74300EB687A /* Persistence.swift */; };
+		4546E4AA27AFE74300EB687A /* FindingFalcone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */; };
+		4546E4B427AFE74300EB687A /* FindingFalconeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */; };
+		4546E4BE27AFE74300EB687A /* FindingFalconeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */; };
+		4546E4C027AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4546E4B027AFE74300EB687A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4546E49227AFE74100EB687A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4546E49927AFE74100EB687A;
+			remoteInfo = FindingFalcone;
+		};
+		4546E4BA27AFE74300EB687A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4546E49227AFE74100EB687A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4546E49927AFE74100EB687A;
+			remoteInfo = FindingFalcone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4546E49A27AFE74100EB687A /* FindingFalcone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindingFalcone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4546E49D27AFE74100EB687A /* FindingFalconeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeApp.swift; sourceTree = "<group>"; };
+		4546E49F27AFE74100EB687A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4546E4A127AFE74300EB687A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4546E4A427AFE74300EB687A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4546E4A627AFE74300EB687A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FindingFalcone.xcdatamodel; sourceTree = "<group>"; };
+		4546E4AF27AFE74300EB687A /* FindingFalconeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindingFalconeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeTests.swift; sourceTree = "<group>"; };
+		4546E4B927AFE74300EB687A /* FindingFalconeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindingFalconeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITests.swift; sourceTree = "<group>"; };
+		4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4546E49727AFE74100EB687A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4AC27AFE74300EB687A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4B627AFE74300EB687A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4546E49127AFE74100EB687A = {
+			isa = PBXGroup;
+			children = (
+				4546E49C27AFE74100EB687A /* FindingFalcone */,
+				4546E4B227AFE74300EB687A /* FindingFalconeTests */,
+				4546E4BC27AFE74300EB687A /* FindingFalconeUITests */,
+				4546E49B27AFE74100EB687A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4546E49B27AFE74100EB687A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4546E49A27AFE74100EB687A /* FindingFalcone.app */,
+				4546E4AF27AFE74300EB687A /* FindingFalconeTests.xctest */,
+				4546E4B927AFE74300EB687A /* FindingFalconeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4546E49C27AFE74100EB687A /* FindingFalcone */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4D027AFEA6B00EB687A /* App */,
+				4546E4D227AFECE600EB687A /* Extensions */,
+				4546E4CD27AFE77E00EB687A /* Models */,
+				4546E4A327AFE74300EB687A /* Preview Content */,
+				4546E4CC27AFE77500EB687A /* Scenes */,
+				4546E4D327AFECF100EB687A /* Services */,
+				4546E4D127AFECBB00EB687A /* Supporting Files */,
+				4546E4CE27AFEA5000EB687A /* Utils */,
+			);
+			path = FindingFalcone;
+			sourceTree = "<group>";
+		};
+		4546E4A327AFE74300EB687A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4A427AFE74300EB687A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4546E4B227AFE74300EB687A /* FindingFalconeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */,
+			);
+			path = FindingFalconeTests;
+			sourceTree = "<group>";
+		};
+		4546E4BC27AFE74300EB687A /* FindingFalconeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */,
+				4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */,
+			);
+			path = FindingFalconeUITests;
+			sourceTree = "<group>";
+		};
+		4546E4CC27AFE77500EB687A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4546E49F27AFE74100EB687A /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4546E4CD27AFE77E00EB687A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4546E4CE27AFEA5000EB687A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4A627AFE74300EB687A /* Persistence.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4546E4D027AFEA6B00EB687A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4546E49D27AFE74100EB687A /* FindingFalconeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4546E4D127AFECBB00EB687A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4546E4A127AFE74300EB687A /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4546E4D227AFECE600EB687A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4546E4D327AFECF100EB687A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4546E49927AFE74100EB687A /* FindingFalcone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4546E4C327AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalcone" */;
+			buildPhases = (
+				4546E49627AFE74100EB687A /* Sources */,
+				4546E49727AFE74100EB687A /* Frameworks */,
+				4546E49827AFE74100EB687A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindingFalcone;
+			productName = FindingFalcone;
+			productReference = 4546E49A27AFE74100EB687A /* FindingFalcone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4546E4AE27AFE74300EB687A /* FindingFalconeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4546E4C627AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalconeTests" */;
+			buildPhases = (
+				4546E4AB27AFE74300EB687A /* Sources */,
+				4546E4AC27AFE74300EB687A /* Frameworks */,
+				4546E4AD27AFE74300EB687A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4546E4B127AFE74300EB687A /* PBXTargetDependency */,
+			);
+			name = FindingFalconeTests;
+			productName = FindingFalconeTests;
+			productReference = 4546E4AF27AFE74300EB687A /* FindingFalconeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4546E4B827AFE74300EB687A /* FindingFalconeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4546E4C927AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalconeUITests" */;
+			buildPhases = (
+				4546E4B527AFE74300EB687A /* Sources */,
+				4546E4B627AFE74300EB687A /* Frameworks */,
+				4546E4B727AFE74300EB687A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4546E4BB27AFE74300EB687A /* PBXTargetDependency */,
+			);
+			name = FindingFalconeUITests;
+			productName = FindingFalconeUITests;
+			productReference = 4546E4B927AFE74300EB687A /* FindingFalconeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4546E49227AFE74100EB687A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					4546E49927AFE74100EB687A = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					4546E4AE27AFE74300EB687A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 4546E49927AFE74100EB687A;
+					};
+					4546E4B827AFE74300EB687A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 4546E49927AFE74100EB687A;
+					};
+				};
+			};
+			buildConfigurationList = 4546E49527AFE74100EB687A /* Build configuration list for PBXProject "FindingFalcone" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4546E49127AFE74100EB687A;
+			productRefGroup = 4546E49B27AFE74100EB687A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4546E49927AFE74100EB687A /* FindingFalcone */,
+				4546E4AE27AFE74300EB687A /* FindingFalconeTests */,
+				4546E4B827AFE74300EB687A /* FindingFalconeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4546E49827AFE74100EB687A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4546E4A527AFE74300EB687A /* Preview Assets.xcassets in Resources */,
+				4546E4A227AFE74300EB687A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4AD27AFE74300EB687A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4B727AFE74300EB687A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4546E49627AFE74100EB687A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4546E4A727AFE74300EB687A /* Persistence.swift in Sources */,
+				4546E4A027AFE74100EB687A /* ContentView.swift in Sources */,
+				4546E4AA27AFE74300EB687A /* FindingFalcone.xcdatamodeld in Sources */,
+				4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4AB27AFE74300EB687A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4546E4B427AFE74300EB687A /* FindingFalconeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4546E4B527AFE74300EB687A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4546E4BE27AFE74300EB687A /* FindingFalconeUITests.swift in Sources */,
+				4546E4C027AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4546E4B127AFE74300EB687A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4546E49927AFE74100EB687A /* FindingFalcone */;
+			targetProxy = 4546E4B027AFE74300EB687A /* PBXContainerItemProxy */;
+		};
+		4546E4BB27AFE74300EB687A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4546E49927AFE74100EB687A /* FindingFalcone */;
+			targetProxy = 4546E4BA27AFE74300EB687A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4546E4C127AFE74300EB687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4546E4C227AFE74300EB687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4546E4C427AFE74300EB687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FindingFalcone/Preview Content\"";
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalcone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4546E4C527AFE74300EB687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FindingFalcone/Preview Content\"";
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalcone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4546E4C727AFE74300EB687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalconeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindingFalcone.app/FindingFalcone";
+			};
+			name = Debug;
+		};
+		4546E4C827AFE74300EB687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalconeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindingFalcone.app/FindingFalcone";
+			};
+			name = Release;
+		};
+		4546E4CA27AFE74300EB687A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalconeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FindingFalcone;
+			};
+			name = Debug;
+		};
+		4546E4CB27AFE74300EB687A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RE4YFXSB23;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glennposadas.FindingFalconeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FindingFalcone;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4546E49527AFE74100EB687A /* Build configuration list for PBXProject "FindingFalcone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4546E4C127AFE74300EB687A /* Debug */,
+				4546E4C227AFE74300EB687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4546E4C327AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalcone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4546E4C427AFE74300EB687A /* Debug */,
+				4546E4C527AFE74300EB687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4546E4C627AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalconeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4546E4C727AFE74300EB687A /* Debug */,
+				4546E4C827AFE74300EB687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4546E4C927AFE74300EB687A /* Build configuration list for PBXNativeTarget "FindingFalconeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4546E4CA27AFE74300EB687A /* Debug */,
+				4546E4CB27AFE74300EB687A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4546E4A827AFE74300EB687A /* FindingFalcone.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */,
+			);
+			currentVersion = 4546E4A927AFE74300EB687A /* FindingFalcone.xcdatamodel */;
+			path = FindingFalcone.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4546E49227AFE74100EB687A /* Project object */;
+}
