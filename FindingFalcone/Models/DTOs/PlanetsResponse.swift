@@ -1,6 +1,6 @@
 import Foundation
 
-struct PlanetResponse: Decodable {
+class PlanetResponse: Decodable {
   let name: String
   let distance: Int
 }

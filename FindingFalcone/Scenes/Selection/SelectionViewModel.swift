@@ -1,27 +1,18 @@
 import Foundation
 import SwiftUI
 
-class SelectionViewModel: ObservableObject {
+@MainActor
+final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Properties
 
-  typealias Planet = PlanetResponse
-  typealias Vehicle = VehicleResponse
-
-  var planets = [Planet]()
-  var vehicles = [Vehicle]()
+  @Published private(set) var planets = [Planet]()
+  @Published private(set) var vehicles = [Vehicle]()
+  
+  @Published  var state: ViewModelState<[String]> = .loading
+  @Published var hasError: Bool = false
   
   // MARK: - Functions
-  // MARK: - Initialization
-  
-  init() {
-    Task.init {
-      await checkAndGetToken()
-      planets = await getPlanets()
-      vehicles = await getVehicles()
-    }
-  }
-  
   // MARK: - Public
   
   func checkAndGetToken() async {
@@ -37,32 +28,31 @@ class SelectionViewModel: ObservableObject {
       print("Token: \(tokenResponse)")
       handleToken(tokenResponse.token)
     } else if case .failure(let error) = result {
-      print("Error SelectionViewModel: \(error.localizedDescription)")
+      handleError(error)
     }
   }
   
-  func getPlanets() async -> [PlanetResponse] {
+  @MainActor
+  func getPlanets() async {
     let result = await API.shared.getPlanets()
 
     if case .success(let planets) = result {
-      return planets
+      self.planets = planets
+      self.state = .success(self.planets.map { $0.name })
     } else if case .failure(let error ) = result {
-      print("Error SelectionViewModel: \(error.localizedDescription)")
+      handleError(error)
     }
-    
-    return []
   }
 
-  func getVehicles() async -> [VehicleResponse] {
+  @MainActor
+  func getVehicles() async {
     let result = await API.shared.getVehicles()
 
     if case .success(let vehicles) = result {
-      return vehicles
+      self.vehicles = vehicles
     } else if case .failure(let error ) = result {
-      print("Error SelectionViewModel: \(error.localizedDescription)")
+      handleError(error)
     }
-    
-    return []
   }
   
   // MARK: - Private
@@ -72,4 +62,10 @@ class SelectionViewModel: ObservableObject {
                                  service: .apiToken,
                                  account: .api)
   }
-}
+  
+  private func handleError(_ error: Error, function: String = #function) {
+    self.state = .failure(error.localizedDescription)
+    self.hasError = true
+    print("Error SelectionViewModel \(function): \(error.localizedDescription)")
+  }
+ }

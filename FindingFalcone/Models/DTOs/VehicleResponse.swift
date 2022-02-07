@@ -1,6 +1,6 @@
 import Foundation
 
-struct VehicleResponse: Decodable {
+class VehicleResponse: Decodable {
   let name: String
   let total, maxDistance, speed: Int
   

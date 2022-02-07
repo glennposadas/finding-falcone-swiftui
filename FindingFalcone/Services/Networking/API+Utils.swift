@@ -55,22 +55,24 @@ extension API {
     _ result: Result<Data, Error>,
     function: String = #function,
     completion: @escaping (Result<T, Error>) -> Void) {
-      switch result {
-      case .success(let data):
-        do {
-          let dto = try JSONDecoder().decode(T.self, from: data)
-          print("API: \(function) - Success \(function): \(dto)")
-          print("======== BEGIN DUMP ========")
-          dump(dto)
-          print("======== END DUMP ========")
-          completion(.success(dto))
-        } catch let error {
-          print("API: \(function) - Error \(function): \(error.localizedDescription) | Error code: \((error as NSError).code) | response: \(String(describing: String.init(data: data, encoding: .utf8)))")
-          completion(.failure(NetworkingError.invalidType(error, data)))
+      DispatchQueue.main.async {
+        switch result {
+        case .success(let data):
+          do {
+            let dto = try JSONDecoder().decode(T.self, from: data)
+            print("API: \(function) - Success \(function): \(dto)")
+            print("======== BEGIN DUMP ========")
+            dump(dto)
+            print("======== END DUMP ========")
+            completion(.success(dto))
+          } catch let error {
+            print("API: \(function) - Error \(function): \(error.localizedDescription) | Error code: \((error as NSError).code) | response: \(String(describing: String.init(data: data, encoding: .utf8)))")
+            completion(.failure(NetworkingError.invalidType(error, data)))
+          }
+        case .failure(let error):
+          print("API: \(function) - Failure \(function): \(error.localizedDescription)")
+          completion(.failure(error))
         }
-      case .failure(let error):
-        print("API: \(function) - Failure \(function): \(error.localizedDescription)")
-        completion(.failure(error))
       }
     }
   
