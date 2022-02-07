@@ -17,16 +17,21 @@ struct SelectionView: View {
         List(withIndex, id: \.element.id) { index, selection in
           Section(header: Text("Destination \(index + 1)")) {
             Text(selection.planetNamePresentable)
-                .font(.headline)
-                .onNavigation { viewModel.selectPlanet(forSelection: selection) }
+              .font(.headline)
+              .onNavigation { viewModel.selectPlanet(forSelection: selection) }
             
             Text(selection.vehicleNamePresentable)
-                .font(.headline)
-                .onNavigation { viewModel.selectVehicle(forSelection: selection) }
+              .font(.headline)
+              .onNavigation { viewModel.selectVehicle(forSelection: selection) }
           }.headerProminence(.increased)
         }
+        .toolbar {
+          Button("Find Falcone!") {
+            print("Let's go!")
+          }.disabled(!viewModel.findFalconeButtonIsEnabled)
+        }
         .listStyle(.insetGrouped)
-        .navigationBarTitle("Finding Falcone")
+        .navigationBarTitle("Select Destinations")
         
       case .loading:
         VStack(spacing: 8) {

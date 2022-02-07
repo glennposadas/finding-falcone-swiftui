@@ -16,6 +16,9 @@ final class SelectionViewModel: BaseViewModel {
   /// Do we have a current error?
   @Published var hasError: Bool = false
   
+  /// Determines if the find falcone button is enabled or not
+  @Published var findFalconeButtonIsEnabled = false
+  
   /// The manager for selections
   private(set) var destinationManager = DestinationManager()
   
