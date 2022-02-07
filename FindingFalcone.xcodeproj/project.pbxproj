@@ -28,6 +28,7 @@
 		45D7397427B0EDF400C996CB /* Planet+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397327B0EDF400C996CB /* Planet+Hashable.swift */; };
 		45D7397627B0EE3500C996CB /* Vehicle+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */; };
 		45D7397A27B0F1FF00C996CB /* Hashable+AnyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */; };
+		45D7397C27B0FA0800C996CB /* DestinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397B27B0FA0800C996CB /* DestinationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		45D7397327B0EDF400C996CB /* Planet+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+Hashable.swift"; sourceTree = "<group>"; };
 		45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+Hashable.swift"; sourceTree = "<group>"; };
 		45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hashable+AnyObject.swift"; sourceTree = "<group>"; };
+		45D7397B27B0FA0800C996CB /* DestinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				45D7397327B0EDF400C996CB /* Planet+Hashable.swift */,
 				45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */,
 				45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */,
+				45D7397B27B0FA0800C996CB /* DestinationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				45D7396D27B0D8C000C996CB /* VehicleResponse.swift in Sources */,
 				45D7396B27B0D24700C996CB /* PlanetsResponse.swift in Sources */,
 				4521A35527B01B35007C2A20 /* SelectionView.swift in Sources */,
+				45D7397C27B0FA0800C996CB /* DestinationManager.swift in Sources */,
 				45D7396927B0D23000C996CB /* TokenResponse.swift in Sources */,
 				45D7397027B0DEAA00C996CB /* BaseViewModel.swift in Sources */,
 				4521A35D27B03300007C2A20 /* API+Utils.swift in Sources */,

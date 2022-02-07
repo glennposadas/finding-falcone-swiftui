@@ -6,11 +6,18 @@ final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Properties
 
+  /// Planet collection
   @Published private(set) var planets = [Planet]()
+  /// Vehicle collection
   @Published private(set) var vehicles = [Vehicle]()
   
-  @Published  var state: ViewModelState<[String]> = .loading
+  /// Current state of the VM
+  @Published var state: ViewModelState<[String]> = .loading
+  /// Do we have a current error?
   @Published var hasError: Bool = false
+  
+  /// The manager for selections
+  private(set) var destinationManager = DestinationManager()
   
   // MARK: - Functions
   // MARK: - Public
