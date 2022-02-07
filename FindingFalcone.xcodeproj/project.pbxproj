@@ -21,6 +21,9 @@
 		45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7395D27B0470A00C996CB /* API+Requests.swift */; };
 		45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396027B050B200C996CB /* SelectionViewModel.swift */; };
 		45D7396527B05C6700C996CB /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396427B05C6700C996CB /* Auth.swift */; };
+		45D7396927B0D23000C996CB /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396827B0D23000C996CB /* TokenResponse.swift */; };
+		45D7396B27B0D24700C996CB /* PlanetsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396A27B0D24700C996CB /* PlanetsResponse.swift */; };
+		45D7396D27B0D8C000C996CB /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396C27B0D8C000C996CB /* VehicleResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		45D7395D27B0470A00C996CB /* API+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Requests.swift"; sourceTree = "<group>"; };
 		45D7396027B050B200C996CB /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
 		45D7396427B05C6700C996CB /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		45D7396827B0D23000C996CB /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		45D7396A27B0D24700C996CB /* PlanetsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsResponse.swift; sourceTree = "<group>"; };
+		45D7396C27B0D8C000C996CB /* VehicleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,7 @@
 		4546E4CD27AFE77E00EB687A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				45D7396727B0D22000C996CB /* DTOs */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +233,16 @@
 				45D7396427B05C6700C996CB /* Auth.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		45D7396727B0D22000C996CB /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				45D7396827B0D23000C996CB /* TokenResponse.swift */,
+				45D7396A27B0D24700C996CB /* PlanetsResponse.swift */,
+				45D7396C27B0D8C000C996CB /* VehicleResponse.swift */,
+			);
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +378,10 @@
 				4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */,
 				45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */,
 				4521A35927B02EA1007C2A20 /* AppConstants.swift in Sources */,
+				45D7396D27B0D8C000C996CB /* VehicleResponse.swift in Sources */,
+				45D7396B27B0D24700C996CB /* PlanetsResponse.swift in Sources */,
 				4521A35527B01B35007C2A20 /* SelectionView.swift in Sources */,
+				45D7396927B0D23000C996CB /* TokenResponse.swift in Sources */,
 				4521A35D27B03300007C2A20 /* API+Utils.swift in Sources */,
 				4521A35B27B02F7B007C2A20 /* API.swift in Sources */,
 				45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */,

@@ -12,15 +12,15 @@ struct SelectionView: View {
     Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
       .onAppear {
         Task.init {
-          let token = try await viewModel.checkAndGetToken()
-          print("token from UI layer :)")
+          await viewModel.checkAndGetToken()
+          await viewModel.getPlanets()
         }
       }
   }
 }
 
-struct SelectionView_Previews: PreviewProvider {
-  static var previews: some View {
-    SelectionView(viewModel: .init())
-  }
-}
+//struct SelectionView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    SelectionView(viewModel: .init())
+//  }
+//}

@@ -1,5 +1,9 @@
 import Foundation
 
+enum NetworkingError: Error {
+  case invalidType(Error, Data?)
+}
+
 extension API {
   /**
    Create a URLSession pre-configured for use. The API strictly requires appropriate HTTP headers.
@@ -17,12 +21,12 @@ extension API {
   }
   
   /**
-   Internal function to execute a URLRequest and to process and return an Array that has been constructed from JSON data
+   Process a request generically
    */
-  func processArrayRequest(_ request: URLRequest,
-                           debugName: String,
-                           throttleConnections: Bool,
-                           completionHandler: @escaping (_ result: NSArray?, _ error: NSError?) -> Void) {
+  func processRequest<T: Decodable>(_ request: URLRequest,
+                                    debugName: String,
+                                    throttleConnections: Bool,
+                                    completion: @escaping (Result<T, Error>) -> Void) {
     // Call the server
     var urlSession = URLSession.shared
     if throttleConnections {
@@ -32,61 +36,43 @@ extension API {
     urlSession.dataTask(with: request) { data, response, error in
       if let error = error {
         print("\(debugName) \(error.localizedDescription)")
-        completionHandler(nil, error as NSError)
+        completion(.failure(error))
         return
       }
       
-      if let data = data { // convert the response, which should be in JSON format, to an NSArray
-        do {
-          if let convertedArray = try JSONSerialization.jsonObject(with: data, options: []) as? NSArray {
-            completionHandler(convertedArray, nil)
-          } else {
-            completionHandler(nil, self.createError(message: "\(debugName) unable to convert JSON to array", response: response))
-          }
-        } catch let error {
-          print("\(debugName) \(error.localizedDescription)")
-          completionHandler(nil, error as NSError)
-        }
+      if let data = data {
+        return self.handleResult(.success(data), completion: completion)
       } else {
-        completionHandler(nil, self.createError(message: debugName, response: response))
+        completion(.failure(self.createError(message: debugName, response: response)))
       }
     }.resume()
   }
   
   /**
-   Internal function to execute a URLRequest and to process and return a Dictionary that has been constructed from JSON data
+   Handle a result generically.
    */
-  func processDictionaryRequest(_ request: URLRequest, debugName: String, throttleConnections: Bool,
-                                completionHandler: @escaping (_ result: [String : Any]?, _ error: NSError?) -> Void) {
-    // Call the server
-    var urlSession = URLSession.shared
-    if throttleConnections {
-      urlSession = API.shared.sharedThrottledURLSession()
-    }
-    
-    urlSession.dataTask(with: request) { data, response, error in
-      if let error = error {
-        print("\(debugName) \(error.localizedDescription)")
-        completionHandler(nil, error as NSError)
-        return
-      }
-      
-      if let data = data { // convert the response, which should be in JSON format, to an NSArray
+  func handleResult<T: Decodable>(
+    _ result: Result<Data, Error>,
+    function: String = #function,
+    completion: @escaping (Result<T, Error>) -> Void) {
+      switch result {
+      case .success(let data):
         do {
-          if let convertedDic = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] {
-            completionHandler(convertedDic, nil)
-          } else {
-            completionHandler(nil, self.createError(message: "\(debugName) unable to convert JSON to dictionary", response: response))
-          }
+          let dto = try JSONDecoder().decode(T.self, from: data)
+          print("API: \(function) - Success \(function): \(dto)")
+          print("======== BEGIN DUMP ========")
+          dump(dto)
+          print("======== END DUMP ========")
+          completion(.success(dto))
         } catch let error {
-          print("\(debugName) \(error.localizedDescription)")
-          completionHandler(nil, error as NSError)
+          print("API: \(function) - Error \(function): \(error.localizedDescription) | Error code: \((error as NSError).code) | response: \(String(describing: String.init(data: data, encoding: .utf8)))")
+          completion(.failure(NetworkingError.invalidType(error, data)))
         }
-      } else {
-        completionHandler(nil, self.createError(message: debugName, response: response))
+      case .failure(let error):
+        print("API: \(function) - Failure \(function): \(error.localizedDescription)")
+        completion(.failure(error))
       }
-    }.resume()
-  }
+    }
   
   /**
    Create a custom NSError to return error messages to the caller
