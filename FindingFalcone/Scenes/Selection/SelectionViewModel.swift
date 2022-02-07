@@ -12,7 +12,7 @@ final class SelectionViewModel: BaseViewModel {
   @Published private(set) var vehicles = [Vehicle]()
   
   /// Current state of the VM
-  @Published var state: ViewModelState<[String]> = .loading
+  @Published var state: ViewModelState<[DestinationManager.Selection]> = .loading
   /// Do we have a current error?
   @Published var hasError: Bool = false
   
@@ -21,6 +21,13 @@ final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Functions
   // MARK: - Public
+  
+  /// A dedicated refresh function. 
+  func refresh() async {
+    await checkAndGetToken()
+    await getPlanets()
+    await getVehicles()
+  }
   
   func checkAndGetToken() async {
 #if !DEBUG
@@ -45,7 +52,8 @@ final class SelectionViewModel: BaseViewModel {
 
     if case .success(let planets) = result {
       self.planets = planets
-      self.state = .success(self.planets.map { $0.name })
+      destinationManager.populateInitialSelections()
+      state = .success( destinationManager.selections )
     } else if case .failure(let error ) = result {
       handleError(error)
     }
@@ -60,6 +68,16 @@ final class SelectionViewModel: BaseViewModel {
     } else if case .failure(let error ) = result {
       handleError(error)
     }
+  }
+  
+  // MARK: Navigations & Handlers
+  
+  func selectPlanet(forSelection selection: DestinationManager.Selection) {
+    print("open selection for planet...")
+  }
+  
+  func selectVehicle(forSelection selection: DestinationManager.Selection) {
+    print("open selection for vehicle...")
   }
   
   // MARK: - Private

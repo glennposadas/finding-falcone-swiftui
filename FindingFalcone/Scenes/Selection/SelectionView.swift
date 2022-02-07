@@ -11,13 +11,23 @@ struct SelectionView: View {
   var body: some View {
     NavigationView {
       switch viewModel.state {
-      case .success(let data):
-        List {
-          ForEach(data, id: \.self) { item in
-            Text(item)
-          }
+      case .success(let selections):
+        let withIndex = selections.enumerated().map({ $0 })
+        
+        List(withIndex, id: \.element.id) { index, selection in
+          Section(header: Text("Destination \(index + 1)")) {
+            Text(selection.planetNamePresentable)
+                .font(.headline)
+                .onNavigation { viewModel.selectPlanet(forSelection: selection) }
+            
+            Text(selection.vehicleNamePresentable)
+                .font(.headline)
+                .onNavigation { viewModel.selectVehicle(forSelection: selection) }
+          }.headerProminence(.increased)
         }
+        .listStyle(.insetGrouped)
         .navigationBarTitle("Finding Falcone")
+        
       case .loading:
         VStack(spacing: 8) {
           ProgressView()
@@ -46,16 +56,7 @@ struct SelectionView: View {
       await viewModel.getVehicles()
     }
     .refreshable {
-      await viewModel.checkAndGetToken()
-      await viewModel.getPlanets()
-      await viewModel.getVehicles()
+      await viewModel.refresh()
     }
   }
 }
-
-struct SelectionView_Previews: PreviewProvider {
-  static var previews: some View {
-    SelectionView(viewModel: .init())
-  }
-}
-
