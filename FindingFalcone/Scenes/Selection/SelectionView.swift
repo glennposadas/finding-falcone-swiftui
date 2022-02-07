@@ -9,13 +9,7 @@ struct SelectionView: View {
   // MARK: - Body
   
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-      .onAppear {
-        Task.init {
-          await viewModel.checkAndGetToken()
-          await viewModel.getPlanets()
-        }
-      }
+    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/) 
   }
 }
 

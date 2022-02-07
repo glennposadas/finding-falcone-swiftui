@@ -3,6 +3,25 @@ import SwiftUI
 
 class SelectionViewModel: ObservableObject {
   
+  // MARK: - Properties
+
+  typealias Planet = PlanetResponse
+  typealias Vehicle = VehicleResponse
+
+  var planets = [Planet]()
+  var vehicles = [Vehicle]()
+  
+  // MARK: - Functions
+  // MARK: - Initialization
+  
+  init() {
+    Task.init {
+      await checkAndGetToken()
+      planets = await getPlanets()
+      vehicles = await getVehicles()
+    }
+  }
+  
   // MARK: - Public
   
   func checkAndGetToken() async {
