@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-@MainActor
 final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Properties
@@ -22,7 +21,16 @@ final class SelectionViewModel: BaseViewModel {
   /// The manager for selections
   private(set) var destinationManager = DestinationManager()
   
+  /// The coordinator for this flow.
+  private unowned let coordinator: SelectionCoordinator
+  
   // MARK: - Functions
+  // MARK: - Initialization
+  
+  init(coordinator: SelectionCoordinator) {
+    self.coordinator = coordinator
+  }
+  
   // MARK: - Public
   
   /// A dedicated refresh function. 

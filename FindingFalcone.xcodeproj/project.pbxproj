@@ -18,6 +18,9 @@
 		4546E4B427AFE74300EB687A /* FindingFalconeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4B327AFE74300EB687A /* FindingFalconeTests.swift */; };
 		4546E4BE27AFE74300EB687A /* FindingFalconeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */; };
 		4546E4C027AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */; };
+		458E052B27B1967300AA3042 /* SelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E052A27B1967300AA3042 /* SelectionCoordinator.swift */; };
+		458E052F27B1984200AA3042 /* SelectionCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E052E27B1984200AA3042 /* SelectionCoordinatorView.swift */; };
+		458E053527B1A1D600AA3042 /* EditSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458E053427B1A1D600AA3042 /* EditSelectionView.swift */; };
 		45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7395D27B0470A00C996CB /* API+Requests.swift */; };
 		45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396027B050B200C996CB /* SelectionViewModel.swift */; };
 		45D7396527B05C6700C996CB /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396427B05C6700C996CB /* Auth.swift */; };
@@ -64,6 +67,9 @@
 		4546E4B927AFE74300EB687A /* FindingFalconeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindingFalconeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4546E4BD27AFE74300EB687A /* FindingFalconeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITests.swift; sourceTree = "<group>"; };
 		4546E4BF27AFE74300EB687A /* FindingFalconeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingFalconeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		458E052A27B1967300AA3042 /* SelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCoordinator.swift; sourceTree = "<group>"; };
+		458E052E27B1984200AA3042 /* SelectionCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCoordinatorView.swift; sourceTree = "<group>"; };
+		458E053427B1A1D600AA3042 /* EditSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSelectionView.swift; sourceTree = "<group>"; };
 		45D7395D27B0470A00C996CB /* API+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Requests.swift"; sourceTree = "<group>"; };
 		45D7396027B050B200C996CB /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
 		45D7396427B05C6700C996CB /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				45D7396E27B0DEA000C996CB /* Base */,
+				458E053027B1A1AD00AA3042 /* EditSelection */,
 				45D7395F27B0509D00C996CB /* Selection */,
 			);
 			path = Scenes;
@@ -226,11 +233,53 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		458E052C27B1981E00AA3042 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45D7396027B050B200C996CB /* SelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		458E052D27B1982F00AA3042 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				458E052A27B1967300AA3042 /* SelectionCoordinator.swift */,
+				458E052E27B1984200AA3042 /* SelectionCoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		458E053027B1A1AD00AA3042 /* EditSelection */ = {
+			isa = PBXGroup;
+			children = (
+				458E053227B1A1BD00AA3042 /* Coordinator */,
+				458E053327B1A1C200AA3042 /* ViewModel */,
+				458E053427B1A1D600AA3042 /* EditSelectionView.swift */,
+			);
+			path = EditSelection;
+			sourceTree = "<group>";
+		};
+		458E053227B1A1BD00AA3042 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		458E053327B1A1C200AA3042 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		45D7395F27B0509D00C996CB /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				458E052D27B1982F00AA3042 /* Coordinator */,
+				458E052C27B1981E00AA3042 /* ViewModel */,
 				4521A35427B01B35007C2A20 /* SelectionView.swift */,
-				45D7396027B050B200C996CB /* SelectionViewModel.swift */,
 			);
 			path = Selection;
 			sourceTree = "<group>";
@@ -411,6 +460,7 @@
 			files = (
 				4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */,
 				45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */,
+				458E052F27B1984200AA3042 /* SelectionCoordinatorView.swift in Sources */,
 				45D7397427B0EDF400C996CB /* Planet+Hashable.swift in Sources */,
 				4521A35927B02EA1007C2A20 /* AppConstants.swift in Sources */,
 				45D7397A27B0F1FF00C996CB /* Hashable+AnyObject.swift in Sources */,
@@ -422,7 +472,9 @@
 				45D7396927B0D23000C996CB /* TokenResponse.swift in Sources */,
 				45D7397027B0DEAA00C996CB /* BaseViewModel.swift in Sources */,
 				4521A35D27B03300007C2A20 /* API+Utils.swift in Sources */,
+				458E052B27B1967300AA3042 /* SelectionCoordinator.swift in Sources */,
 				4521A35B27B02F7B007C2A20 /* API.swift in Sources */,
+				458E053527B1A1D600AA3042 /* EditSelectionView.swift in Sources */,
 				45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */,
 				45D7397627B0EE3500C996CB /* Vehicle+Hashable.swift in Sources */,
 				4521A35727B023BE007C2A20 /* Keychain.swift in Sources */,
