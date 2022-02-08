@@ -85,10 +85,12 @@ final class SelectionViewModel: BaseViewModel {
   
   func selectPlanet(forSelection selection: DestinationManager.Selection) {
     print("open selection for planet...")
+    coordinator.openForPlanet(selection)
   }
   
   func selectVehicle(forSelection selection: DestinationManager.Selection) {
     print("open selection for vehicle...")
+    coordinator.openForVehicle(selection)
   }
   
   // MARK: - Private

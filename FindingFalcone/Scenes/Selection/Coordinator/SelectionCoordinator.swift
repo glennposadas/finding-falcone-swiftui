@@ -2,33 +2,25 @@ import SwiftUI
 
 class SelectionCoordinator: ObservableObject, Identifiable {
   
-  // MARK: Stored Properties
+  // MARK: - Properties
   
   @Published var viewModel: SelectionViewModel!
   @Published var editSelectionViewModel: EditSelectionViewModel?
   
-  // MARK: Initialization
+  // MARK: - Functions
+  // MARK: - Initialization
   
   init() {
     self.viewModel = .init(coordinator: self)
   }
   
-  // MARK: Methods
+  // MARK: - Public
   
-//  func open(_ recipe: Recipe) {
-//    self.detailViewModel = .init(recipe: recipe, coordinator: self)
-//  }
-//
-//  func openRatings(for recipe: Recipe) {
-//    self.ratingViewModel = .init(recipe: recipe, recipeService: recipeService, coordinator: self)
-//  }
-//
-//  func closeRatings() {
-//    self.ratingViewModel = nil
-//  }
-//
-//  func open(_ url: URL) {
-//    self.parent.open(url)
-//  }
-//
+  func openForPlanet(_ selection: DestinationManager.Selection) {
+    editSelectionViewModel = .init(selection: selection, coordinator: self)
+  }
+
+  func openForVehicle(_ selection: DestinationManager.Selection) {
+    editSelectionViewModel = .init(selection: selection, coordinator: self)
+  }
 }

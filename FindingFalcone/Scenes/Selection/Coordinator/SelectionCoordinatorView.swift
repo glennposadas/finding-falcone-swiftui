@@ -11,7 +11,7 @@ struct SelectionCoordinatorView: View {
   var body: some View {
     SelectionView(viewModel: coordinator.viewModel)
       .navigation(item: $coordinator.editSelectionViewModel) { viewModel in
-        
+        EditSelectionView()
       }
   }
 }
