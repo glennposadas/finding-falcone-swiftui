@@ -54,7 +54,7 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getPlanets()
 
     if case .success(let planets) = result {
-      destinationManager.allPlanets = planets
+      destinationManager.allPlanets = Set(planets.map{$0})
       destinationManager.populateInitialSelections()
       state = .success( destinationManager.selections )
       self.hasError = false
@@ -68,7 +68,7 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getVehicles()
 
     if case .success(let vehicles) = result {
-      destinationManager.allVehicles = vehicles
+      destinationManager.allVehicles = Set(vehicles.map{$0})
     } else if case .failure(let error ) = result {
       handleError(error)
     }

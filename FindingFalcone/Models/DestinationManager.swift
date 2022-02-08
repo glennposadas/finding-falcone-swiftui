@@ -55,7 +55,7 @@ final class DestinationManager {
   typealias SelectionDictionary = [String : Bool]
   
   /// Collection of planets from the server
-  var allPlanets = [Planet]() {
+  var allPlanets = Set<Planet>() {
     didSet {
       // Set the dictionary state
       planetsWithSelectionState = allPlanets.reduce(into: SelectionDictionary(), {
@@ -65,7 +65,7 @@ final class DestinationManager {
   }
   
   /// Collection of vehicles
-  var allVehicles = [Vehicle]() {
+  var allVehicles = Set<Vehicle>() {
     didSet {
       // Set the dictionary state
       vehiclesWithSelectionState = allVehicles.reduce(into: SelectionDictionary(), {
@@ -108,5 +108,40 @@ final class DestinationManager {
     for index in 0..<AppConstants.REQUIRED_PLANETS_COUNT_FOR_SEARCH {
       selections.append(.init(id: index))
     }
+  }
+  
+  /**
+   Look for equivalent name based on `UUID`.
+   */
+  func getItemName(byUUID uuid: UUID) -> String? {
+    if let planetName = getPlanet(byUUID: uuid) {
+      return planetName.name
+    } else if let vehicleName = getVehicle(byUUID: uuid) {
+      return vehicleName.name
+    }
+    
+    return nil
+  }
+  
+  /**
+   Get the `Planet` based on `UUID`
+   */
+  func getPlanet(byUUID uuid: UUID) -> Planet? {
+    if let planet = allPlanets.filter({ $0.id == uuid }).first {
+      return planet
+    }
+    
+    return nil
+  }
+  
+  /**
+   Get the `Vehicle` based on `UUID`
+   */
+  func getVehicle(byUUID uuid: UUID) -> Vehicle? {
+    if let vehicle = allVehicles.filter({ $0.id == uuid }).first {
+      return vehicle
+    }
+    
+    return nil
   }
 }

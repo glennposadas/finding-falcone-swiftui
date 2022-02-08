@@ -2,47 +2,43 @@ import SwiftUI
 
 struct EditSelectionView: View {
   
-  @ObservedObject var viewModel: EditSelectionViewModel
+  @ObservedObject var viewModel: EditSelectionViewModel {
+    didSet {
+      switch viewModel.selection.selectingFor {
+      case .planet:
+        selectedItemName = viewModel.selection.selection.planet?.name
+      case .vehicle:
+        selectedItemName = viewModel.selection.selection.vehicle?.name
+      }
+    }
+  }
+  
+  /// The selected planet or vehicle, using its name.
+  @State var selectedItemName: String?
   
   var body: some View {
     ZStack(alignment: .top) {
       GeometryReader { geometry in
         Color(.clear)
-        VStack(alignment: .leading) {
-          HStack {
-            Text(viewModel.selectionSubtitle)
-              .multilineTextAlignment(.leading)
-              .padding(.leading, 22)
-          }
-          
-          let withIndex = destinationManager.selections.enumerated().map({ $0 })
-          
-          List(withIndex, id: \.element.id) { index, selection in
-            Section(header: Text("Destination \(index + 1)")) {
-              Text(selection.planetNamePresentable)
-                .font(.headline)
-                .onNavigation {
-
-                }
-              
-              Text(selection.vehicleNamePresentable)
-                .font(.headline)
-                .onNavigation {
-                  
-                }
-            }.headerProminence(.increased)
+        List(Array(destinationManager.allPlanets), id: \.id) { item in
+          Section(header: Text(viewModel.selectionSubtitle)) {
+//            SelectableWrapperCell(selected: $selectedItemName,
+//                                  wrapped: SelectionCell(item: item))
           }
         }
       }
+      .navigationTitle(viewModel.selectionTitle)
     }
-    .navigationTitle(viewModel.selectionTitle)
   }
 }
 
-struct MyPreviewProvider_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationView {
-      EditSelectionView(viewModel: .init(selection: DestinationManager.Selection(id: 0), coordinator: SelectionCoordinator()))
-    }
-  }
-}
+//
+//switch viewModel.selection.selectingFor {
+//case .planet:
+//
+//case .vehicle:
+//  ForEach(destinationManager.allVehicles, id: \.self) { item in
+//    SelectableWrapperCell(selected: self.$selectedItemName,
+//                          wrapped: SelectionCell(item: item))
+//  }
+//}
