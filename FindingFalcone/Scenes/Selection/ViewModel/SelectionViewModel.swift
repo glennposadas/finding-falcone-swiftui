@@ -1,6 +1,9 @@
-import Foundation
 import SwiftUI
 
+/**
+ View Model of selection flow.
+ TODO: make a store.
+ */
 final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Properties
@@ -68,7 +71,27 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getVehicles()
 
     if case .success(let vehicles) = result {
-      destinationManager.allVehicles = Set(vehicles.map{$0})
+      var allVehicles = Set<Vehicle>()
+      
+      vehicles.forEach { vehicle in
+        if vehicle.total == 0 {
+          return
+        } else if vehicle.total == 1 {
+          allVehicles.insert(vehicle)
+        } else {
+          for _ in 0..<vehicle.total - 1 {
+            let newVehicle = vehicle.newCopy()
+            allVehicles.insert(newVehicle)
+          }
+          
+          allVehicles.insert(vehicle)
+        }
+      }
+      
+      print("Vehicles count: \(allVehicles.count)")
+      
+      destinationManager.allVehicles = allVehicles
+      
     } else if case .failure(let error ) = result {
       handleError(error)
     }
