@@ -48,6 +48,7 @@ class EditSelectionViewModel: BaseViewModel {
     guard let selectedPlanet = selectedPlanet else {
       return
     }
+    selection.planetNamePresentable = selectedPlanet.name
     selection.selection.planet = selectedPlanet
   }
   
@@ -55,6 +56,7 @@ class EditSelectionViewModel: BaseViewModel {
     guard let selectedVehicle = selectedVehicle else {
       return
     }
+    selection.vehicleNamePresentable = selectedVehicle.name
     selection.selection.vehicle = selectedVehicle
   }
 }

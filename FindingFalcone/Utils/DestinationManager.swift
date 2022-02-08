@@ -26,14 +26,10 @@ final class DestinationManager {
     var selectingFor: SelectingFor = .planet
     
     /// Presentable subtitle
-    var planetNamePresentable: String {
-      selection.planet?.name ?? "Select a planet"
-    }
+    @Published var planetNamePresentable: String
     
     /// Presentable subtitle
-    var vehicleNamePresentable: String {
-      selection.vehicle?.name ?? "Select a vehicle"
-    }
+    @Published var vehicleNamePresentable: String
     
     // MARK: - CustomStringConvertible
     
@@ -47,6 +43,8 @@ final class DestinationManager {
     init(id: Int, selectionTuple: (planet: Planet?, vehicle: Vehicle?) = (nil, nil)) {
       self.id = id
       self.selection = selectionTuple
+      self.planetNamePresentable = "Select a planet"
+      self.vehicleNamePresentable = "Select a vehicle"
     }
   }
   
@@ -144,6 +142,13 @@ final class DestinationManager {
     }
     
     return true
+  }
+  
+  /**
+   Clears all selections. Game over. Start Again.
+   */
+  func clearAllSelections() {
+    destinationManager.selections.removeAll()
   }
 }
 

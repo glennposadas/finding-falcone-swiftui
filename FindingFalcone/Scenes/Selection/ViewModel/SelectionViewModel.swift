@@ -14,6 +14,8 @@ final class SelectionViewModel: BaseViewModel {
   @Published var hasError: Bool = false
   /// Find falcone call is done.
   @Published var hasCalledFindFalcone: Bool = false
+  /// Success find falcone.
+  @Published var hasSucceededCallingFindFalcone: Bool = false
   /// Find falcone call message
   @Published var findFalconeMessage: String = ""
   
@@ -38,6 +40,8 @@ final class SelectionViewModel: BaseViewModel {
   /// Validates input to toggle find falcone button enabled state.
   func validateInputs() {
     print("validateInputs")
+    hasCalledFindFalcone = false
+    hasSucceededCallingFindFalcone = false
     timeTaken = destinationManager.getTimeTaken()
     findFalconeButtonIsEnabled = destinationManager.selectionsAreComplete()
   }
@@ -51,9 +55,7 @@ final class SelectionViewModel: BaseViewModel {
   
   /// Start again.
   func gameOver() async {
-    destinationManager.allVehicles.removeAll()
-    destinationManager.allPlanets.removeAll()
-    destinationManager.selections.removeAll()
+    destinationManager.clearAllSelections()
     await refresh()
   }
   
@@ -93,8 +95,8 @@ final class SelectionViewModel: BaseViewModel {
 
   @MainActor
   func getVehicles() async {
-    let result = await API.shared.getVehicles()
-
+    let result = await API.shared.getVehicles
+    
     if case .success(let vehicles) = result {
       var allVehicles = Array<Vehicle>()
       

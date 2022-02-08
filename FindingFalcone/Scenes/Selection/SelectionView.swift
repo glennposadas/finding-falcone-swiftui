@@ -55,6 +55,7 @@ struct SelectionView: View {
         EmptyView()
       }
     }
+    
     .alert("Error",
            isPresented: $viewModel.hasError,
            presenting: viewModel.state) { state in
@@ -68,8 +69,9 @@ struct SelectionView: View {
         Text(errorMessage)
       }
     }
+    
     .alert("Sucess!",
-           isPresented: $viewModel.hasCalledFindFalcone,
+           isPresented: $viewModel.hasSucceededCallingFindFalcone,
            presenting: viewModel.findFalconeMessage) { message in
       Button("Start Again") {
         Task {
@@ -79,6 +81,13 @@ struct SelectionView: View {
     } message: { message in
       Text(message)
       Text("Time taken: \(viewModel.timeTaken)")
+    }
+    
+    .alert("Please wait...",
+           isPresented: $viewModel.hasCalledFindFalcone,
+           presenting: viewModel.findFalconeMessage) { message in
+    } message: { message in
+      ProgressView()
     }
   }
 }
