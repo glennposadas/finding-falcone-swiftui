@@ -4,6 +4,7 @@ import SwiftUI
  Selection cell for vehicle types.
  */
 struct VehicleCell: View, ViewProtocol {
+  var selectionId: Int
   var item: Vehicle
   
   var body: some View {

@@ -19,12 +19,12 @@ struct EditSelectionView: View {
             case .planet:
               ForEach(viewModel.allPlanets, id: \.id) { planet in
                 SelectableWrapperCell(selected: self.$selectedPlanet,
-                                      wrapped: PlanetCell(item: planet))
+                                      wrapped: PlanetCell(selectionId: viewModel.selection.id, item: planet))
               }
             case .vehicle:
               ForEach(viewModel.allVehicles, id: \.id) { vehicle in
                 SelectableWrapperCell(selected: self.$selectedVehicle,
-                                      wrapped: VehicleCell(item: vehicle))
+                                      wrapped: VehicleCell(selectionId: viewModel.selection.id, item: vehicle))
               }
             }
           }

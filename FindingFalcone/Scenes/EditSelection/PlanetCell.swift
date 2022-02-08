@@ -4,6 +4,7 @@ import SwiftUI
  Selection cell for planet types.
  */
 struct PlanetCell: View, ViewProtocol {
+  var selectionId: Int
   var item: Planet
   
   var body: some View {

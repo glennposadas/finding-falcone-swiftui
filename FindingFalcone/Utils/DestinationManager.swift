@@ -73,7 +73,7 @@ final class DestinationManager {
   }
   
   typealias SelectionDictionary = [String : Bool]
-
+  
   /// Key and value pair for all planets.
   /// Key as planet id, and value if selected or not
   var planetsWithSelectionState: SelectionDictionary = [:]
@@ -117,39 +117,27 @@ final class DestinationManager {
 
 // MARK: - Is Selected
 
-extension Planet {
+extension BaseModel {
   /// Determines if the current planet is currently selected.
   /// If yes, disable the view.
-  var isSelected: Bool {
+  func isSelectedOutsideSelection(selectionId: Int) -> Bool {
     var selected = false
     
     destinationManager.selections.forEach {
-      guard let planet = $0.selection.planet else {
+      guard selectionId != $0.id else {
         return
       }
       
-      if planet == self {
-        selected = true
-      }
-    }
-    
-    return selected
-  }
-}
-
-extension Vehicle {
-  /// Determines if the current vehicle is currently selected.
-  /// If yes, disable the view.
-  var isSelected: Bool {
-    var selected = false
-    
-    destinationManager.selections.forEach {
-      guard let vehicle = $0.selection.vehicle else {
-        return
+      if let planet = $0.selection.planet {
+        if planet.id == id {
+          selected = true
+        }
       }
       
-      if vehicle == self {
-        selected = true
+      if let vehicle = $0.selection.vehicle {
+        if vehicle.id == id {
+          selected = true
+        }
       }
     }
     
