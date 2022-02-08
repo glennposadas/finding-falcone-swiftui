@@ -1,8 +1,13 @@
 import Foundation
 
-class VehicleResponse: Decodable, Identifiable, Equatable {
-  let name: String
-  let total, maxDistance, speed: Int
+typealias Vehicle = VehicleResponse
+
+class VehicleResponse: Decodable,
+                       Identifiable,
+                       Equatable,
+                       Hashable {
+  var name: String
+  var total, maxDistance, speed: Int
   
   private(set) var id: UUID? = UUID()
   
@@ -19,5 +24,9 @@ class VehicleResponse: Decodable, Identifiable, Equatable {
     speed = try values.decodeIfPresent(Int.self, forKey: .speed) ?? 1
     maxDistance = try values.decodeIfPresent(Int.self, forKey: .maxDistance) ?? 0
     id = UUID()
+  }
+  
+  static func == (lhs: VehicleResponse, rhs: VehicleResponse) -> Bool {
+    lhs.id == rhs.id
   }
 }

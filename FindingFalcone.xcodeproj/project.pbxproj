@@ -32,8 +32,6 @@
 		45D7396B27B0D24700C996CB /* PlanetsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396A27B0D24700C996CB /* PlanetsResponse.swift */; };
 		45D7396D27B0D8C000C996CB /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396C27B0D8C000C996CB /* VehicleResponse.swift */; };
 		45D7397027B0DEAA00C996CB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7396F27B0DEAA00C996CB /* BaseViewModel.swift */; };
-		45D7397427B0EDF400C996CB /* Planet+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397327B0EDF400C996CB /* Planet+Hashable.swift */; };
-		45D7397627B0EE3500C996CB /* Vehicle+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */; };
 		45D7397A27B0F1FF00C996CB /* Hashable+AnyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */; };
 		45D7397C27B0FA0800C996CB /* DestinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397B27B0FA0800C996CB /* DestinationManager.swift */; };
 		45D7397E27B1067000C996CB /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7397D27B1067000C996CB /* View+Navigation.swift */; };
@@ -85,8 +83,6 @@
 		45D7396A27B0D24700C996CB /* PlanetsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsResponse.swift; sourceTree = "<group>"; };
 		45D7396C27B0D8C000C996CB /* VehicleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
 		45D7396F27B0DEAA00C996CB /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		45D7397327B0EDF400C996CB /* Planet+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+Hashable.swift"; sourceTree = "<group>"; };
-		45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+Hashable.swift"; sourceTree = "<group>"; };
 		45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hashable+AnyObject.swift"; sourceTree = "<group>"; };
 		45D7397B27B0FA0800C996CB /* DestinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationManager.swift; sourceTree = "<group>"; };
 		45D7397D27B1067000C996CB /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
@@ -191,8 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				45D7396727B0D22000C996CB /* DTOs */,
-				45D7397327B0EDF400C996CB /* Planet+Hashable.swift */,
-				45D7397527B0EE3500C996CB /* Vehicle+Hashable.swift */,
 				45D7397927B0F1FF00C996CB /* Hashable+AnyObject.swift */,
 				45D7397B27B0FA0800C996CB /* DestinationManager.swift */,
 			);
@@ -473,7 +467,6 @@
 				4546E49E27AFE74100EB687A /* FindingFalconeApp.swift in Sources */,
 				45D7396127B050B200C996CB /* SelectionViewModel.swift in Sources */,
 				458E052F27B1984200AA3042 /* SelectionCoordinatorView.swift in Sources */,
-				45D7397427B0EDF400C996CB /* Planet+Hashable.swift in Sources */,
 				4521A35927B02EA1007C2A20 /* AppConstants.swift in Sources */,
 				45D7397A27B0F1FF00C996CB /* Hashable+AnyObject.swift in Sources */,
 				45D7396D27B0D8C000C996CB /* VehicleResponse.swift in Sources */,
@@ -492,7 +485,6 @@
 				458E053527B1A1D600AA3042 /* EditSelectionView.swift in Sources */,
 				45D7395E27B0470A00C996CB /* API+Requests.swift in Sources */,
 				458E059027B284D200AA3042 /* SelectionCell.swift in Sources */,
-				45D7397627B0EE3500C996CB /* Vehicle+Hashable.swift in Sources */,
 				4521A35727B023BE007C2A20 /* Keychain.swift in Sources */,
 				45D7396527B05C6700C996CB /* Auth.swift in Sources */,
 			);

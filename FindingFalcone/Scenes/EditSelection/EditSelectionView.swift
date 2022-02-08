@@ -20,10 +20,17 @@ struct EditSelectionView: View {
     ZStack(alignment: .top) {
       GeometryReader { geometry in
         Color(.clear)
-        List(Array(destinationManager.allPlanets), id: \.id) { item in
+        List {
           Section(header: Text(viewModel.selectionSubtitle)) {
-//            SelectableWrapperCell(selected: $selectedItemName,
-//                                  wrapped: SelectionCell(item: item))
+            switch viewModel.selection.selectingFor {
+            case .planet:
+              ForEach(Array(destinationManager.allPlanets), id: \.self) { item in
+                let name = item.name
+                SelectableWrapperCell(selected: self.$selectedItemName,
+                                      wrapped: SelectionCell(item: name))
+              }
+            case .vehicle: Text("v")
+            }
           }
         }
       }

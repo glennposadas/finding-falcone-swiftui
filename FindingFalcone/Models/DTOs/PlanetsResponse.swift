@@ -1,8 +1,14 @@
 import Foundation
 
-class PlanetResponse: Decodable, Identifiable, Equatable {
-  let name: String
-  let distance: Int
+typealias Planet = PlanetResponse
+
+class PlanetResponse: Decodable,
+                      Identifiable,
+                      Equatable,
+                      Hashable {
+  
+  var name: String
+  var distance: Int
   
   private(set) var id: UUID
   
@@ -15,5 +21,9 @@ class PlanetResponse: Decodable, Identifiable, Equatable {
     name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
     distance = try values.decodeIfPresent(Int.self, forKey: .distance) ?? 0
     id = UUID()
+  }
+  
+  static func == (lhs: PlanetResponse, rhs: PlanetResponse) -> Bool {
+    lhs.id == rhs.id
   }
 }

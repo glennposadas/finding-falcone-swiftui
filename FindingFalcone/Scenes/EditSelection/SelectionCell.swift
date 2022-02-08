@@ -6,7 +6,7 @@ struct SelectionCell: View, ViewProtocol {
   var body: some View {
     VStack(alignment: .leading) {
       let name = destinationManager.getItemName(byUUID: item) ?? "Unknown"
-      Text("name").fontWeight(.medium).scaledToFill()
+      Text(name).fontWeight(.medium).scaledToFill()
     }
   }
 }
