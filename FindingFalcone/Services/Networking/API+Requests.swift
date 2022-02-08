@@ -78,12 +78,16 @@ extension API {
     
     let token = Auth.shared.getTokenFromKeychain()
     
-    var jsonBody = [
+    let jsonBody = [
       "token" : token,
       "planet_names" : planetNames,
       "vehicle_names" : vehicleNames
-    ]
+    ] as [String : Any]
+    
     request.httpBody = try? JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
+    
+    print("httpBody:")
+    print(jsonBody)
 
     return await withCheckedContinuation { continuation in
       processRequest(request,

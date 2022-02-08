@@ -176,4 +176,33 @@ extension BaseModel {
     
     return false
   }
+  
+  /// Check if max distance of vehicle is be greater than or equal to the distance of the planet
+  func maxDistanceVehicleIsMet(selectionId: Int) -> Bool {
+    let toBeSelected = self
+    
+    for selection in destinationManager.selections {
+      if selectionId == selection.id {
+        if let planet = toBeSelected as? Planet {
+          if let vehicleMaxDistance = selection.selection.vehicle?.maxDistance {
+            return vehicleMaxDistance >= planet.distance
+          } else if selection.selection.vehicle == nil {
+            return true // we have no selection yet.
+          }
+        }
+        
+        if let vehicle = toBeSelected as? Vehicle {
+          let vehicleMaxDistance = vehicle.maxDistance
+          
+          if let planetDistance = selection.selection.planet?.distance {
+            return vehicleMaxDistance >= planetDistance
+          } else if selection.selection.planet == nil {
+            return true // no selection yet
+          }
+        }
+      }
+    }
+    
+    return false
+  }
 }
