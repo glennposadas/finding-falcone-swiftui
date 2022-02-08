@@ -75,10 +75,10 @@ final class DestinationManager {
   }
   
   /// Key and value pair for all planets.
-  /// Key as planet name, and value if selected or not
+  /// Key as planet id, and value if selected or not
   var planetsWithSelectionState: SelectionDictionary = [:]
   /// Key and value pair for all vehicles with selection state.
-  /// Key as vehicle name, and value if selected or not.
+  /// Key as vehicle id, and value if selected or not.
   var vehiclesWithSelectionState: SelectionDictionary = [:]
   
   /// The selection objects used by the views.

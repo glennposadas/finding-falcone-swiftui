@@ -79,12 +79,18 @@ final class SelectionViewModel: BaseViewModel {
         } else if vehicle.total == 1 {
           allVehicles.insert(vehicle)
         } else {
-          for _ in 0..<vehicle.total - 1 {
+          for index in 0..<vehicle.total - 1 {
+            vehicle.name = vehicle.name + " 1"
+            allVehicles.insert(vehicle)
+            
             let newVehicle = vehicle.newCopy()
+            // Append the index to the name.
+            // For instance, index 0 means the second vehicle.
+            // Therefore, #2.
+            let newName = newVehicle.name.components(separatedBy: " ").first ?? ""
+            newVehicle.name = newName + " \(index + 2)"
             allVehicles.insert(newVehicle)
           }
-          
-          allVehicles.insert(vehicle)
         }
       }
       

@@ -9,6 +9,14 @@ class EditSelectionViewModel: BaseViewModel {
   @Published var selectionTitle: String = ""
   @Published var selectionSubtitle: String = ""
   
+  var allPlanets: [Planet] {
+    Array(destinationManager.allPlanets)
+  }
+  
+  var allVehicles: [Vehicle] {
+    Array(destinationManager.allVehicles)
+  }
+  
   private unowned let coordinator: SelectionCoordinator
   
   // MARK: - Functions
@@ -32,5 +40,11 @@ class EditSelectionViewModel: BaseViewModel {
   
   // MARK: - Public
   
+  func commit(selectedPlanet: Planet?) {
+    selection.selection.planet = selectedPlanet
+  }
   
+  func commit(selectedVehicle: Vehicle?) {
+    selection.selection.vehicle = selectedVehicle
+  }
 }
