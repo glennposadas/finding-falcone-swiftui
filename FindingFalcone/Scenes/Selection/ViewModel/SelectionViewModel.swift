@@ -18,9 +18,6 @@ final class SelectionViewModel: BaseViewModel {
   /// Determines if the find falcone button is enabled or not
   @Published var findFalconeButtonIsEnabled = false
   
-  /// The manager for selections
-  private(set) var destinationManager = DestinationManager()
-  
   /// The coordinator for this flow.
   private unowned let coordinator: SelectionCoordinator
   

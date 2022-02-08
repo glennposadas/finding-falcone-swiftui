@@ -18,11 +18,17 @@ struct SelectionView: View {
           Section(header: Text("Destination \(index + 1)")) {
             Text(selection.planetNamePresentable)
               .font(.headline)
-              .onNavigation { viewModel.selectPlanet(forSelection: selection) }
+              .onNavigation {
+                selection.selectingFor = .planet
+                viewModel.selectPlanet(forSelection: selection)
+              }
             
             Text(selection.vehicleNamePresentable)
               .font(.headline)
-              .onNavigation { viewModel.selectVehicle(forSelection: selection) }
+              .onNavigation {
+                selection.selectingFor = .vehicle
+                viewModel.selectVehicle(forSelection: selection)
+              }
           }.headerProminence(.increased)
         }
         .toolbar {

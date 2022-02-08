@@ -12,7 +12,12 @@ struct SelectionCoordinatorView: View {
     NavigationView {
       SelectionView(viewModel: coordinator.viewModel)
         .navigation(item: $coordinator.editSelectionViewModel) { viewModel in
-          EditSelectionView()
+          EditSelectionView(
+            viewModel: .init(
+              selection: viewModel.selection,
+              coordinator: coordinator
+            )
+          )
         }
     }
     .task {
