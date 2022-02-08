@@ -57,7 +57,10 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getPlanets()
 
     if case .success(let planets) = result {
-      destinationManager.allPlanets = Set(planets.map{$0})
+      destinationManager.allPlanets = planets.sorted {
+        $0.distance < $1.distance
+      }.map{$0}
+      
       destinationManager.populateInitialSelections()
       state = .success( destinationManager.selections )
       self.hasError = false
@@ -71,26 +74,26 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getVehicles()
 
     if case .success(let vehicles) = result {
-      var allVehicles = Set<Vehicle>()
+      var allVehicles = Array<Vehicle>()
       
       vehicles.forEach { vehicle in
         if vehicle.total == 0 {
           return
         } else if vehicle.total == 1 {
-          allVehicles.insert(vehicle)
+          allVehicles.append(vehicle)
         } else {
           for index in 0..<vehicle.total - 1 {
             let originalName = vehicle.name
             
             vehicle.name = vehicle.name + " 1"
-            allVehicles.insert(vehicle)
+            allVehicles.append(vehicle)
             
             let newVehicle = vehicle.newCopy()
             // Append the index to the name.
             // For instance, index 0 means the second vehicle.
             // Therefore, #2.
             newVehicle.name = originalName + " \(index + 2)"
-            allVehicles.insert(newVehicle)
+            allVehicles.append(newVehicle)
           }
         }
       }
@@ -99,7 +102,7 @@ final class SelectionViewModel: BaseViewModel {
       
       destinationManager.allVehicles = allVehicles.sorted {
         $0.maxDistance < $1.maxDistance
-      }
+      }.map{$0}
       
     } else if case .failure(let error ) = result {
       handleError(error)

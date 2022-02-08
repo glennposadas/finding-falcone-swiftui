@@ -53,10 +53,10 @@ final class DestinationManager {
   // MARK: - Properties
     
   /// Collection of planets from the server
-  var allPlanets = Set<Planet>()
+  var allPlanets = Array<Planet>()
   
   /// Collection of vehicles
-  var allVehicles = Set<Vehicle>()
+  var allVehicles = Array<Vehicle>()
   
   /// The selection objects used by the views.
   var selections = [Selection]()
