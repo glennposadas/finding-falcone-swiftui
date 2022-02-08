@@ -4,7 +4,7 @@ struct SelectionView: View {
   
   // MARK: - Properties
   
-  @StateObject var viewModel: SelectionViewModel
+  @ObservedObject var viewModel: SelectionViewModel
   
   // MARK: - Body
   
@@ -30,19 +30,6 @@ struct SelectionView: View {
         }.disabled(!viewModel.findFalconeButtonIsEnabled)
       }
       .listStyle(.insetGrouped)
-      .alert("Error",
-             isPresented: $viewModel.hasError,
-             presenting: viewModel.state) { detail in
-        Button("Retry") {
-          Task {
-            await viewModel.checkAndGetToken()
-          }
-        }
-      } message: { detail in
-        if case let .failure(errorMessage) = detail {
-          Text(errorMessage)
-        }
-      }
       .navigationBarTitle("Select Destinations")
       
     case .loading:

@@ -53,7 +53,7 @@ final class SelectionViewModel: BaseViewModel {
       print("Token: \(tokenResponse)")
       handleToken(tokenResponse.token)
     } else if case .failure(let error) = result {
-      handleError(error)
+      await handleError(error)
     }
   }
   
@@ -101,6 +101,7 @@ final class SelectionViewModel: BaseViewModel {
                                  account: .api)
   }
   
+  @MainActor
   private func handleError(_ error: Error, function: String = #function) {
     self.state = .failure(error.localizedDescription)
     self.hasError = true
