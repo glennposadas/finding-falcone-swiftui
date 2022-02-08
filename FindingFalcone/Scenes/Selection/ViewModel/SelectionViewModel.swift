@@ -14,7 +14,10 @@ final class SelectionViewModel: BaseViewModel {
   @Published var hasError: Bool = false
   
   /// Determines if the find falcone button is enabled or not
-  @Published var findFalconeButtonIsEnabled = false
+  @Published var findFalconeButtonIsEnabled: Bool = false
+  
+  /// Time taken.
+  @Published var timeTaken: Int = 0
   
   /// The coordinator for this flow.
   private unowned let coordinator: SelectionCoordinator
@@ -27,6 +30,12 @@ final class SelectionViewModel: BaseViewModel {
   }
   
   // MARK: - Public
+  
+  /// Validates input to toggle find falcone button enabled state.
+  func validateInputs() {
+    print("validateInputs")
+    
+  }
   
   /// A dedicated refresh function. 
   func refresh() async {

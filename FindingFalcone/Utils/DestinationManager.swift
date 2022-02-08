@@ -113,6 +113,19 @@ final class DestinationManager {
       selections.append(.init(id: index))
     }
   }
+  
+  /**
+   Check if all selection has been filled!
+   */
+  func selectionsAreComplete() -> Bool {
+    for selection in destinationManager.selections {
+      if selection.selection.planet == nil || selection.selection.vehicle == nil {
+        return false
+      }
+    }
+    
+    return true
+  }
 }
 
 // MARK: - Is Selected
@@ -120,27 +133,23 @@ final class DestinationManager {
 extension BaseModel {
   /// Determines if the current planet is currently selected.
   /// If yes, disable the view.
-  func isSelectedOutsideSelection(selectionId: Int) -> Bool {
-    var selected = false
-    
-    destinationManager.selections.forEach {
-      guard selectionId != $0.id else {
-        return
-      }
-      
-      if let planet = $0.selection.planet {
-        if planet.id == id {
-          selected = true
+  func isSelectedOutsideSelection(selectionId: Int) -> Bool {    
+    for selection in destinationManager.selections {
+      if selectionId != selection.id {
+        if let planet = selection.selection.planet {
+          if planet.id == id {
+            return true
+          }
         }
-      }
-      
-      if let vehicle = $0.selection.vehicle {
-        if vehicle.id == id {
-          selected = true
+        
+        if let vehicle = selection.selection.vehicle {
+          if vehicle.id == id {
+            return true
+          }
         }
       }
     }
     
-    return selected
+    return false
   }
 }

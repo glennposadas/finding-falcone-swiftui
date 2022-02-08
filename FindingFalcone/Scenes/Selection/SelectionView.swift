@@ -14,30 +14,34 @@ struct SelectionView: View {
       case .success(let selections):
         let withIndex = selections.enumerated().map({ $0 })
         
-        List(withIndex, id: \.element.id) { index, selection in
-          Section(header: Text("Destination \(index + 1)")) {
-            Text(selection.planetNamePresentable)
-              .font(.headline)
-              .onNavigation {
-                selection.selectingFor = .planet
-                viewModel.selectPlanet(forSelection: selection)
-              }
-            
-            Text(selection.vehicleNamePresentable)
-              .font(.headline)
-              .onNavigation {
-                selection.selectingFor = .vehicle
-                viewModel.selectVehicle(forSelection: selection)
-              }
-          }.headerProminence(.increased)
+        VStack {
+          List(withIndex, id: \.element.id) { index, selection in
+            Section(header: Text("Destination \(index + 1)")) {
+              Text(selection.planetNamePresentable)
+                .font(.headline)
+                .onNavigation {
+                  selection.selectingFor = .planet
+                  viewModel.selectPlanet(forSelection: selection)
+                }
+              
+              Text(selection.vehicleNamePresentable)
+                .font(.headline)
+                .onNavigation {
+                  selection.selectingFor = .vehicle
+                  viewModel.selectVehicle(forSelection: selection)
+                }
+            }.headerProminence(.increased)
+          }
+          .toolbar {
+            Button("Find Falcone!") {
+              print("Let's go!")
+            }.disabled(!viewModel.findFalconeButtonIsEnabled)
+          }
+          .listStyle(.insetGrouped)
+          .navigationBarTitle("Select Destinations")
+          Text("Time taken: \(viewModel.timeTaken)")
+          Spacer()
         }
-        .toolbar {
-          Button("Find Falcone!") {
-            print("Let's go!")
-          }.disabled(!viewModel.findFalconeButtonIsEnabled)
-        }
-        .listStyle(.insetGrouped)
-        .navigationBarTitle("Select Destinations")
         
       case .loading:
         ZStack(alignment: .center) {
@@ -50,6 +54,9 @@ struct SelectionView: View {
       default:
         EmptyView()
       }
+    }
+    .onAppear {
+      viewModel.validateInputs()
     }
     .alert("Error",
            isPresented: $viewModel.hasError,
