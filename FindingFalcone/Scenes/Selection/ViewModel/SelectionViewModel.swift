@@ -12,6 +12,10 @@ final class SelectionViewModel: BaseViewModel {
   @Published var state: ViewModelState<[DestinationManager.Selection]> = .loading
   /// Do we have a current error?
   @Published var hasError: Bool = false
+  /// Find falcone call is done.
+  @Published var hasCalledFindFalcone: Bool = false
+  /// Find falcone call message
+  @Published var findFalconeMessage: String = ""
   
   /// Determines if the find falcone button is enabled or not
   @Published var findFalconeButtonIsEnabled: Bool = false
@@ -43,6 +47,14 @@ final class SelectionViewModel: BaseViewModel {
     await checkAndGetToken()
     await getPlanets()
     await getVehicles()
+  }
+  
+  /// Start again.
+  func gameOver() async {
+    destinationManager.allVehicles.removeAll()
+    destinationManager.allPlanets.removeAll()
+    destinationManager.selections.removeAll()
+    await refresh()
   }
   
   func checkAndGetToken() async {

@@ -68,5 +68,17 @@ struct SelectionView: View {
         Text(errorMessage)
       }
     }
+    .alert("Sucess!",
+           isPresented: $viewModel.hasCalledFindFalcone,
+           presenting: viewModel.findFalconeMessage) { message in
+      Button("Start Again") {
+        Task {
+          await viewModel.gameOver()
+        }
+      }
+    } message: { message in
+      Text(message)
+      Text("Time taken: \(viewModel.timeTaken)")
+    }
   }
 }
