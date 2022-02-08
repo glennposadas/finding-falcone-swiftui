@@ -65,6 +65,7 @@ final class SelectionViewModel: BaseViewModel {
       self.planets = planets
       destinationManager.populateInitialSelections()
       state = .success( destinationManager.selections )
+      self.hasError = false
     } else if case .failure(let error ) = result {
       handleError(error)
     }
