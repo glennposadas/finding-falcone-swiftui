@@ -4,11 +4,6 @@ import SwiftUI
 final class SelectionViewModel: BaseViewModel {
   
   // MARK: - Properties
-
-  /// Planet collection
-  @Published private(set) var planets = [Planet]()
-  /// Vehicle collection
-  @Published private(set) var vehicles = [Vehicle]()
   
   /// Current state of the VM
   @Published var state: ViewModelState<[DestinationManager.Selection]> = .loading
@@ -59,7 +54,7 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getPlanets()
 
     if case .success(let planets) = result {
-      self.planets = planets
+      destinationManager.allPlanets = planets
       destinationManager.populateInitialSelections()
       state = .success( destinationManager.selections )
       self.hasError = false
@@ -73,7 +68,7 @@ final class SelectionViewModel: BaseViewModel {
     let result = await API.shared.getVehicles()
 
     if case .success(let vehicles) = result {
-      self.vehicles = vehicles
+      destinationManager.allVehicles = vehicles
     } else if case .failure(let error ) = result {
       handleError(error)
     }

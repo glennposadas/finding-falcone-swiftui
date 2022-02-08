@@ -48,12 +48,50 @@ final class DestinationManager {
   
   // MARK: - Properties
   
+  typealias SelectionDictionary = [String : Bool]
+  
+  /// Collection of planets from the server
+  var allPlanets = [Planet]() {
+    didSet {
+      // Set the dictionary state
+      planetsWithSelectionState = allPlanets.reduce(into: SelectionDictionary(), {
+        $0[$1.name] = false
+      })
+    }
+  }
+  
+  /// Collection of vehicles
+  var allVehicles = [Vehicle]() {
+    didSet {
+      // Set the dictionary state
+      vehiclesWithSelectionState = allVehicles.reduce(into: SelectionDictionary(), {
+        $0[$1.name] = false
+      })
+    }
+  }
+  
+  /// Key and value pair for all planets.
+  /// Key as planet name, and value if selected or not
+  var planetsWithSelectionState: SelectionDictionary = [:]
+  /// Key and value pair for all vehicles with selection state.
+  /// Key as vehicle name, and value if selected or not.
+  var vehiclesWithSelectionState: SelectionDictionary = [:]
+  
+  /// The selection objects used by the views.
   var selections = [Selection]()
+  
+  /// Singleton manager
   static let shared = DestinationManager()
   
   // MARK: - Functions
   // MARK: - Public
   
+  /**
+   Returns the computer time taken,
+   
+   - Formula:
+   
+   */
   func getTimeTaken() -> Int {
     return 0
   }
