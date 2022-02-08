@@ -51,15 +51,42 @@ final class DestinationManager {
   }
   
   // MARK: - Properties
-    
+  
   /// Collection of planets from the server
-  var allPlanets = Array<Planet>()
+  var allPlanets = Array<Planet>() {
+    didSet {
+      // Set the dictionary state
+      planetsWithSelectionState = allPlanets.reduce(into: SelectionDictionary(), {
+        $0[$1.id.uuidString] = false
+      })
+    }
+  }
   
   /// Collection of vehicles
-  var allVehicles = Array<Vehicle>()
+  var allVehicles = Array<Vehicle>() {
+    didSet {
+      // Set the dictionary state
+      vehiclesWithSelectionState = allVehicles.reduce(into: SelectionDictionary(), {
+        $0[$1.id.uuidString] = false
+      })
+    }
+  }
+  
+  typealias SelectionDictionary = [String : Bool]
+
+  /// Key and value pair for all planets.
+  /// Key as planet id, and value if selected or not
+  var planetsWithSelectionState: SelectionDictionary = [:]
+  /// Key and value pair for all vehicles with selection state.
+  /// Key as vehicle id, and value if selected or not.
+  var vehiclesWithSelectionState: SelectionDictionary = [:]
   
   /// The selection objects used by the views.
-  var selections = [Selection]()
+  var selections = [Selection]() {
+    didSet {
+      print("ssss")
+    }
+  }
   
   /// Singleton manager
   static let shared = DestinationManager()
@@ -71,7 +98,7 @@ final class DestinationManager {
    Returns the computer time taken,
    
    - Formula:
-    ``` t = distance / speed ```
+   ``` t = distance / speed ```
    */
   func getTimeTaken() -> Int {
     return 0
@@ -85,5 +112,47 @@ final class DestinationManager {
     for index in 0..<AppConstants.REQUIRED_PLANETS_COUNT_FOR_SEARCH {
       selections.append(.init(id: index))
     }
+  }
+}
+
+// MARK: - Is Selected
+
+extension Planet {
+  /// Determines if the current planet is currently selected.
+  /// If yes, disable the view.
+  var isSelected: Bool {
+    var selected = false
+    
+    destinationManager.selections.forEach {
+      guard let planet = $0.selection.planet else {
+        return
+      }
+      
+      if planet == self {
+        selected = true
+      }
+    }
+    
+    return selected
+  }
+}
+
+extension Vehicle {
+  /// Determines if the current vehicle is currently selected.
+  /// If yes, disable the view.
+  var isSelected: Bool {
+    var selected = false
+    
+    destinationManager.selections.forEach {
+      guard let vehicle = $0.selection.vehicle else {
+        return
+      }
+      
+      if vehicle == self {
+        selected = true
+      }
+    }
+    
+    return selected
   }
 }

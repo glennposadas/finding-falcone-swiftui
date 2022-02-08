@@ -41,10 +41,16 @@ class EditSelectionViewModel: BaseViewModel {
   // MARK: - Public
   
   func commit(selectedPlanet: Planet?) {
+    guard let selectedPlanet = selectedPlanet else {
+      return
+    }
     selection.selection.planet = selectedPlanet
   }
   
   func commit(selectedVehicle: Vehicle?) {
+    guard let selectedVehicle = selectedVehicle else {
+      return
+    }
     selection.selection.vehicle = selectedVehicle
   }
 }
