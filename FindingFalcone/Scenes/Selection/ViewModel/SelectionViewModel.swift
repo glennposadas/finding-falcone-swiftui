@@ -103,8 +103,8 @@ final class SelectionViewModel: BaseViewModel {
   
   @MainActor
   private func handleError(_ error: Error, function: String = #function) {
-    self.state = .failure(error.localizedDescription)
     self.hasError = true
+    self.state = .failure(error.localizedDescription)
     print("Error SelectionViewModel \(function): \(error.localizedDescription)")
   }
  }
