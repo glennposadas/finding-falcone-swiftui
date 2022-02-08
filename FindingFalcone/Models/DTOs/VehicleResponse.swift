@@ -2,15 +2,11 @@ import Foundation
 
 typealias Vehicle = VehicleResponse
 
-class VehicleResponse: Decodable,
-                       Identifiable,
-                       Equatable,
-                       Hashable {
+class VehicleResponse: BaseModel, Decodable {
+  var id: UUID
   var name: String
   var total, maxDistance, speed: Int
-  
-  private(set) var id: UUID? = UUID()
-  
+    
   enum CodingKeys: String, CodingKey {
     case name, speed
     case total = "total_no"

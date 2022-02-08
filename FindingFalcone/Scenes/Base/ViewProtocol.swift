@@ -1,6 +1,6 @@
 import Foundation
 
 protocol ViewProtocol {
-  associatedtype Model: Equatable
+  associatedtype Model: BaseModel
   var item: Model { get }
 }

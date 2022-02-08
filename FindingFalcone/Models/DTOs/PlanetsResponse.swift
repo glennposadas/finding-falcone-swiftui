@@ -2,15 +2,11 @@ import Foundation
 
 typealias Planet = PlanetResponse
 
-class PlanetResponse: Decodable,
-                      Identifiable,
-                      Equatable,
-                      Hashable {
+class PlanetResponse: BaseModel, Decodable {
   
+  var id: UUID
   var name: String
   var distance: Int
-  
-  private(set) var id: UUID
   
   enum CodingKeys: String, CodingKey {
     case name, distance

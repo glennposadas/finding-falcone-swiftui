@@ -6,15 +6,17 @@ struct EditSelectionView: View {
     didSet {
       switch viewModel.selection.selectingFor {
       case .planet:
-        selectedItemName = viewModel.selection.selection.planet?.name
+        selectedPlanet = viewModel.selection.selection.planet
       case .vehicle:
-        selectedItemName = viewModel.selection.selection.vehicle?.name
+        selectedVehicle = viewModel.selection.selection.vehicle
       }
     }
   }
   
-  /// The selected planet or vehicle, using its name.
-  @State var selectedItemName: String?
+  /// The selected planet.
+  @State var selectedPlanet: Planet?
+  /// The selected vehicle.
+  @State var selectedVehicle: Vehicle?
   
   var body: some View {
     ZStack(alignment: .top) {
@@ -24,12 +26,15 @@ struct EditSelectionView: View {
           Section(header: Text(viewModel.selectionSubtitle)) {
             switch viewModel.selection.selectingFor {
             case .planet:
-              ForEach(Array(destinationManager.allPlanets), id: \.self) { item in
-                let name = item.name
-                SelectableWrapperCell(selected: self.$selectedItemName,
-                                      wrapped: SelectionCell(item: name))
+              ForEach(Array(destinationManager.allPlanets), id: \.id) { planet in
+                SelectableWrapperCell(selected: self.$selectedPlanet,
+                                      wrapped: PlanetCell(item: planet))
               }
-            case .vehicle: Text("v")
+            case .vehicle:
+              ForEach(Array(destinationManager.allVehicles), id: \.id) { vehicle in
+                SelectableWrapperCell(selected: self.$selectedVehicle,
+                                      wrapped: VehicleCell(item: vehicle))
+              }
             }
           }
         }
@@ -38,14 +43,3 @@ struct EditSelectionView: View {
     }
   }
 }
-
-//
-//switch viewModel.selection.selectingFor {
-//case .planet:
-//
-//case .vehicle:
-//  ForEach(destinationManager.allVehicles, id: \.self) { item in
-//    SelectableWrapperCell(selected: self.$selectedItemName,
-//                          wrapped: SelectionCell(item: item))
-//  }
-//}
