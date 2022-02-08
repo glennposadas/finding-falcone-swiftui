@@ -95,8 +95,8 @@ final class SelectionViewModel: BaseViewModel {
 
   @MainActor
   func getVehicles() async {
-    let result = await API.shared.getVehicles
-    
+    let result = await API.shared.getVehicles()
+
     if case .success(let vehicles) = result {
       var allVehicles = Array<Vehicle>()
       
