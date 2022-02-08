@@ -80,6 +80,8 @@ final class SelectionViewModel: BaseViewModel {
           allVehicles.insert(vehicle)
         } else {
           for index in 0..<vehicle.total - 1 {
+            let originalName = vehicle.name
+            
             vehicle.name = vehicle.name + " 1"
             allVehicles.insert(vehicle)
             
@@ -87,8 +89,7 @@ final class SelectionViewModel: BaseViewModel {
             // Append the index to the name.
             // For instance, index 0 means the second vehicle.
             // Therefore, #2.
-            let newName = newVehicle.name.components(separatedBy: " ").first ?? ""
-            newVehicle.name = newName + " \(index + 2)"
+            newVehicle.name = originalName + " \(index + 2)"
             allVehicles.insert(newVehicle)
           }
         }
@@ -96,7 +97,9 @@ final class SelectionViewModel: BaseViewModel {
       
       print("Vehicles count: \(allVehicles.count)")
       
-      destinationManager.allVehicles = allVehicles
+      destinationManager.allVehicles = allVehicles.sorted {
+        $0.maxDistance < $1.maxDistance
+      }
       
     } else if case .failure(let error ) = result {
       handleError(error)

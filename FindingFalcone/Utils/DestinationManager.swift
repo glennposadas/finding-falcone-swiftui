@@ -51,35 +51,12 @@ final class DestinationManager {
   }
   
   // MARK: - Properties
-  
-  typealias SelectionDictionary = [String : Bool]
-  
+    
   /// Collection of planets from the server
-  var allPlanets = Set<Planet>() {
-    didSet {
-      // Set the dictionary state
-      planetsWithSelectionState = allPlanets.reduce(into: SelectionDictionary(), {
-        $0[$1.name] = false
-      })
-    }
-  }
+  var allPlanets = Set<Planet>()
   
   /// Collection of vehicles
-  var allVehicles = Set<Vehicle>() {
-    didSet {
-      // Set the dictionary state
-      vehiclesWithSelectionState = allVehicles.reduce(into: SelectionDictionary(), {
-        $0[$1.name] = false
-      })
-    }
-  }
-  
-  /// Key and value pair for all planets.
-  /// Key as planet id, and value if selected or not
-  var planetsWithSelectionState: SelectionDictionary = [:]
-  /// Key and value pair for all vehicles with selection state.
-  /// Key as vehicle id, and value if selected or not.
-  var vehiclesWithSelectionState: SelectionDictionary = [:]
+  var allVehicles = Set<Vehicle>()
   
   /// The selection objects used by the views.
   var selections = [Selection]()
@@ -108,40 +85,5 @@ final class DestinationManager {
     for index in 0..<AppConstants.REQUIRED_PLANETS_COUNT_FOR_SEARCH {
       selections.append(.init(id: index))
     }
-  }
-  
-  /**
-   Look for equivalent name based on `UUID`.
-   */
-  func getItemName(byUUID uuid: UUID) -> String? {
-    if let planetName = getPlanet(byUUID: uuid) {
-      return planetName.name
-    } else if let vehicleName = getVehicle(byUUID: uuid) {
-      return vehicleName.name
-    }
-    
-    return nil
-  }
-  
-  /**
-   Get the `Planet` based on `UUID`
-   */
-  func getPlanet(byUUID uuid: UUID) -> Planet? {
-    if let planet = allPlanets.filter({ $0.id == uuid }).first {
-      return planet
-    }
-    
-    return nil
-  }
-  
-  /**
-   Get the `Vehicle` based on `UUID`
-   */
-  func getVehicle(byUUID uuid: UUID) -> Vehicle? {
-    if let vehicle = allVehicles.filter({ $0.id == uuid }).first {
-      return vehicle
-    }
-    
-    return nil
   }
 }
