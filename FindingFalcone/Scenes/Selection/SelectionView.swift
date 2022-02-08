@@ -50,7 +50,7 @@ struct SelectionView: View {
            presenting: viewModel.state) { state in
       Button("Retry") {
         Task {
-          await viewModel.checkAndGetToken()
+          await viewModel.refresh()
         }
       }
     } message: { state in
