@@ -17,16 +17,20 @@ final class DestinationManager {
     
     // MARK: - Properties
     
+    /// Identifiable
     var id: Int
+    /// The selection object
     var selection: (planet: Planet?, vehicle: Vehicle?)
     
     /// Determines the type of selection we are selecting for in the edit view.
     var selectingFor: SelectingFor = .planet
     
+    /// Presentable subtitle
     var planetNamePresentable: String {
       selection.planet?.name ?? "Select a planet"
     }
     
+    /// Presentable subtitle
     var vehicleNamePresentable: String {
       selection.vehicle?.name ?? "Select a vehicle"
     }
@@ -90,12 +94,15 @@ final class DestinationManager {
    Returns the computer time taken,
    
    - Formula:
-   
+    ``` t = distance / speed ```
    */
   func getTimeTaken() -> Int {
     return 0
   }
   
+  /**
+   Populates all the selection.
+   */
   func populateInitialSelections() {
     guard selections.isEmpty else { return }
     for index in 0..<AppConstants.REQUIRED_PLANETS_COUNT_FOR_SEARCH {
