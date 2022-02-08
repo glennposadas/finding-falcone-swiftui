@@ -19,10 +19,4 @@ class EditSelectionViewModel {
   
   // MARK: - Public
   
-  func openForPlanet(_ selection: DestinationManager.Selection) {
-    
-  }
-
-  func openForVehicle(_ selection: DestinationManager.Selection) {
-  }
 }
