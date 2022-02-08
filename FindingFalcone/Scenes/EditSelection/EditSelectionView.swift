@@ -40,6 +40,7 @@ struct EditSelectionView: View {
       print("Edit selection view is closing... Commit changes... Planet: \(String(describing: selectedPlanet)) | Vehicle: \(String(describing: selectedVehicle))")
       viewModel.commit(selectedPlanet: selectedPlanet)
       viewModel.commit(selectedVehicle: selectedVehicle)
+      viewModel.askForValidation()
     }
   }
 }

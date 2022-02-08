@@ -40,6 +40,10 @@ class EditSelectionViewModel: BaseViewModel {
   
   // MARK: - Public
   
+  func askForValidation() {
+    coordinator.viewModel.validateInputs()
+  }
+  
   func commit(selectedPlanet: Planet?) {
     guard let selectedPlanet = selectedPlanet else {
       return

@@ -34,7 +34,8 @@ final class SelectionViewModel: BaseViewModel {
   /// Validates input to toggle find falcone button enabled state.
   func validateInputs() {
     print("validateInputs")
-    
+    timeTaken = destinationManager.getTimeTaken()
+    findFalconeButtonIsEnabled = destinationManager.selectionsAreComplete()
   }
   
   /// A dedicated refresh function. 

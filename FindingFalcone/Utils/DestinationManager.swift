@@ -98,10 +98,29 @@ final class DestinationManager {
    Returns the computer time taken,
    
    - Formula:
-   ``` t = distance / speed ```
+   ``` t = distance of plant / speed of vehicle ```
    */
   func getTimeTaken() -> Int {
-    return 0
+    var t = 0
+    
+    for selection in destinationManager.selections {
+      guard let planet = selection.selection.planet,
+            let vehicle = selection.selection.vehicle else {
+              continue
+            }
+      
+      let distance = planet.distance
+      let speed = vehicle.speed
+      
+      print("Intial t: \(t)")
+      
+      if speed > 0 {
+        t += distance / speed
+        print("Distance: \(distance) / Speed: \(speed) = \(t)")
+      }
+    }
+    
+    return t
   }
   
   /**
@@ -133,7 +152,7 @@ final class DestinationManager {
 extension BaseModel {
   /// Determines if the current planet is currently selected.
   /// If yes, disable the view.
-  func isSelectedOutsideSelection(selectionId: Int) -> Bool {    
+  func isSelectedOutsideSelection(selectionId: Int) -> Bool {
     for selection in destinationManager.selections {
       if selectionId != selection.id {
         if let planet = selection.selection.planet {

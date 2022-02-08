@@ -55,9 +55,6 @@ struct SelectionView: View {
         EmptyView()
       }
     }
-    .onAppear {
-      viewModel.validateInputs()
-    }
     .alert("Error",
            isPresented: $viewModel.hasError,
            presenting: viewModel.state) { state in
