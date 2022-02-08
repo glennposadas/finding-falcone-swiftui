@@ -30,3 +30,11 @@ class PlanetResponse: BaseModel, Decodable {
     lhs.id == rhs.id
   }
 }
+
+// MARK: - CustomStringConvertible
+
+extension Planet: CustomStringConvertible {
+  var description: String {
+    "Planet id: \(id) | name: \(name) | distance: \(distance)"
+  }
+}

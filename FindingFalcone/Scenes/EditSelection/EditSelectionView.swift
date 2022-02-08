@@ -41,5 +41,10 @@ struct EditSelectionView: View {
       }
       .navigationTitle(viewModel.selectionTitle)
     }
+    .onDisappear {
+      print("Edit selection view is closing... Commit changes... Planet: \(String(describing: selectedPlanet)) | Vehicle: \(String(describing: selectedVehicle))")
+      viewModel.selection.selection.vehicle = selectedVehicle
+      viewModel.selection.selection.planet = selectedPlanet
+    }
   }
 }

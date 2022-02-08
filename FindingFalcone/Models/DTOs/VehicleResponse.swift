@@ -56,3 +56,11 @@ class VehicleResponse: BaseModel, Decodable {
     lhs.id == rhs.id
   }
 }
+
+// MARK: - CustomStringConvertible
+
+extension Vehicle: CustomStringConvertible {
+  var description: String {
+    "Planet id: \(id) | name: \(name) | speed: \(speed) | maxDistance: \(maxDistance)"
+  }
+}
