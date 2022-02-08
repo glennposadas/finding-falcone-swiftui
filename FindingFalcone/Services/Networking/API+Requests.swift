@@ -61,5 +61,36 @@ extension API {
   /**
    Request for `find` - finding falcone.
    */
-//  func findFalcone() async
+  func findFalcone(selections: [DestinationManager.Selection], token: String) async -> Result<FindFalconeResponse, Error> {
+    let urlPath = API.baseURLPath + "find"
+    var request = createRequest(urlPath: urlPath)
+    request.httpMethod = "POST"
+    
+ 
+    
+    let planetNames = selections.compactMap {
+      $0.selection.planet?.name
+    }
+    
+    let vehicleNames = selections.compactMap {
+      $0.selection.vehicle?.name
+    }
+    
+    let token = Auth.shared.getTokenFromKeychain()
+    
+    var jsonBody = [
+      "token" : token,
+      "planet_names" : planetNames,
+      "vehicle_names" : vehicleNames
+    ]
+    request.httpBody = try? JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
+
+    return await withCheckedContinuation { continuation in
+      processRequest(request,
+                     debugName: "find falcone!",
+                     throttleConnections: true) { (result: Result<FindFalconeResponse, Error>) in
+        continuation.resume(returning: result)
+      }
+    }
+  }
 }
