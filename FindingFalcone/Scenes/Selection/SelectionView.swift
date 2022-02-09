@@ -35,6 +35,9 @@ struct SelectionView: View {
           .toolbar {
             Button("Find Falcone!") {
               print("Let's go!")
+              Task {
+                await viewModel.findFalcone()
+              }
             }.disabled(!viewModel.findFalconeButtonIsEnabled)
           }
           .listStyle(.insetGrouped)
@@ -70,13 +73,16 @@ struct SelectionView: View {
       }
     }
     
-    .alert("Sucess!",
+    .alert(viewModel.findFalconeMessage,
            isPresented: $viewModel.hasSucceededCallingFindFalcone,
-           presenting: viewModel.findFalconeMessage) { message in
+           presenting: "") { message in
       Button("Start Again") {
         Task {
           await viewModel.gameOver()
         }
+      }
+      Button("Cancel") {
+        
       }
     } message: { message in
       Text(message)

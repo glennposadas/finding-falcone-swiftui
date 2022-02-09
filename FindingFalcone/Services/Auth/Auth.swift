@@ -26,3 +26,4 @@ class Auth {
     KeychainHelper.standard.save(data, service: .apiToken, account: .api)
   }
 }
+#imageLiteral(resourceName: "simulator_screenshot_7E804100-8D25-4DE3-8C2C-D47E8D934286.png")

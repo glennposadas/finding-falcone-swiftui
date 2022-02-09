@@ -133,6 +133,36 @@ final class SelectionViewModel: BaseViewModel {
     }
   }
   
+  @MainActor
+  func findFalcone() async {
+    hasCalledFindFalcone = true
+    
+    let result = await API.shared.findFalcone(
+      selections: destinationManager.selections,
+      token: Auth.shared.getTokenFromKeychain()
+    )
+    
+    print("Result- find falcone:")
+    
+    if case .success(let findResponse) = result {
+      let status = findResponse.status
+      let planetName = findResponse.planetName
+      
+      hasSucceededCallingFindFalcone = true
+      
+      if status == "success" && planetName != nil {
+        findFalconeMessage = "Success! Congratulations on Finding Falcone. King Shan is mighty please. \n\n Time taken: \(timeTaken) \nPlanet found: \(planetName ?? "")"
+      } else {
+        findFalconeMessage = "Falcone wasn't found. \nPlease try again!"
+      }
+      
+    } else if case .failure(let error ) = result {
+      handleError(error)
+    }
+    
+    hasCalledFindFalcone = false
+  }
+  
   // MARK: Navigations & Handlers
   
   func selectPlanet(forSelection selection: DestinationManager.Selection) {
@@ -148,9 +178,8 @@ final class SelectionViewModel: BaseViewModel {
   // MARK: - Private
   
   private func handleToken(_ token: String) {
-    KeychainHelper.standard.save(token.data(using: .utf8),
-                                 service: .apiToken,
-                                 account: .api)
+    print("handleToken: \(token)")
+    Auth.shared.storeTokenToKeychain(token)
   }
   
   @MainActor
