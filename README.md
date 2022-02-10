@@ -5,6 +5,7 @@ This is a challenge from GeekTrust. Originally for web developers.
 Project details:
 - made in SwiftUI
 - no third party libraries.
+- Async/Await.
 - MVVM-Coordinator
 - ready for UI-Unit Tests.
 - clean UI design.
